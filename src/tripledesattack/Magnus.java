@@ -10,8 +10,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Magnus {
 	
-	test
-
     public static void main(String[] args) throws Exception {
 
         String text = "test123123123";
