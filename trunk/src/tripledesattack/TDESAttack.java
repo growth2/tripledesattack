@@ -1,95 +1,200 @@
 /**
- * 
+ * @author Andreas Urke
+ * @author Magnus Lervåg
+ *
  */
 package tripledesattack;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.crypto.Cipher;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 
-/**
- * @author Andreas
- *
- */
 public class TDESAttack {
 	
-	private HashMap<String, String> pcTable;
-	private byte[] key;
+	private HashMap<String, byte[]> pcTable;
+	private HashMap<byte[], byte[]> pkTable = new HashMap<byte[], byte[]>();
+	private HashMap<String, Integer> pcHashTable = new HashMap<String, Integer>();
+	private byte[] correctKey;
 	private long time;
-	private byte[] genKey1 = new byte[7], genKey2 = new byte[7];
-	private int generatedKey1, generatedKey2 = 0;
-	private static byte test2 = 0x0F;
-	static int test3 = 2000000001;
-	
+	private byte[] genKey1 = new byte[8], genKey2 = new byte[8];
+	private boolean[] change1 = new boolean[7];
+	private boolean[] change2 = new boolean[7];
+	private long numKeys1 = 0;
+	private long numKeys2 = 0;
+	private DES des = new DES();
+
 	/**
 	 * Constructor
 	 * @throws UnsupportedEncodingException 
 	 */
 	public TDESAttack(String numberOfPCs, String key1, String key2) throws NumberFormatException, UnsupportedEncodingException{
+		//Preparations
+		Arrays.fill(change1, false);
+		Arrays.fill(change2, false);
+		Arrays.fill(genKey1, (byte)-128);
+		Arrays.fill(genKey2, (byte)-128);
 		time = System.currentTimeMillis();
+		//--------------
 		
-		//key = properKey(key1, key2);
-		//pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), key);
-		//System.out.println("done");
+		correctKey = genKeyFromStr(key1, key2);
+		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), correctKey);
 		
-		//ROT
-		//System.out.println(pcTable.toString());
-		//for(int i = 0; i<pcTable.length; i++)System.out.println(Integer.toHexString(key[i]));
-		//--------
-		fillKeyArray();
-		generateKey();
+		
+		attackPart1();
+		
+		//Adm
 		time = System.currentTimeMillis() - time;
 	    System.out.println("The test took " + time + " milliseconds");
+	    //---------
 	}
-
 	/**
-	 * @param args
+	 * @param args0: Number of PC-pairs. args1: Key1 as 8-char String. args2: Key2 as 8-char String.
 	 * @throws UnsupportedEncodingException 
 	 */
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		//TDESAttack attack = new TDESAttack(args[0], args[1], args[2]);
-		//properKey("testkrip" , "12345678");
-		TDESAttack attack = new TDESAttack("10000", "test1234", "test1234");
-		
-		
-	
-		
+		TDESAttack attack = new TDESAttack("10000", "test1234", "cipher99");
+	}
+	/**
+	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
+	 * the corresponding ciphertext is decrypted using the same key.
+	 * The new plaintext and and the key is stored in pkTable(pk -> PlaintextKey).
+	 * @throws UnsupportedEncodingException
+	 */
+	//TODO: dårlig navn
+	private void attackPart1() throws UnsupportedEncodingException{
+		String result = "";
+		String cipherText = "test1234"; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
+		byte[] cipherBytes = new byte[8];
+		Arrays.fill(cipherBytes, (byte)0);
+		String bytesAsString = new BASE64Encoder().encode(cipherBytes);
+		try {
+	//		byte[] encryptedBytes2 = new BASE64Decoder().decodeBuffer(cipherBytes);
+			des.setKey(genKey1);
+			des.setMode(Cipher.DECRYPT_MODE);
+			result = des.decrypt(cipherBytes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(pcTable.containsKey(result)){
+			byte[] corrCipherText = pcTable.get(result);
+			pkTable.put(corrCipherText, genKey1);
+		}
+	}
+	/**
+	 * Reads of the pcTable, creates a hashcode of each Value(cipertexts) and inserts into a
+	 * new HashMap pcHashTable. Keys are the same.
+	 */
+	//TODO: denne er useless nå. men kan kanskje få bruk for i part 2 av angrepet
+	private void hashPCtable(){
+		Set<String> keySet = pcTable.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		while(keyIterator.hasNext()){
+			String currentKey = keyIterator.next();
+			int hashCode = pcTable.get(currentKey).hashCode();
+			pcHashTable.put(currentKey, hashCode);
+		}
 	}
 	
-	private static byte[] properKey(String keyString1, String keyString2) throws UnsupportedEncodingException{
+	/**
+	 * Generates a DES-key based on two keys represented as Strings.
+	 * 
+	 * @param keyString1
+	 * @param keyString2
+	 * @return A DES-key as a byte[]-array
+	 * @throws UnsupportedEncodingException
+	 */
+	private byte[] genKeyFromStr(String keyString1, String keyString2) throws UnsupportedEncodingException{
 		String keyString = keyString1 + keyString2;
 		byte[] keyByteArray = keyString.getBytes("utf-8");
         byte[] key = Arrays.copyOf(keyByteArray, 24);
         for (int j = 0, k = 16; j < 8;) {
                 key[k++] = key[j++];
         }
+        //For printing av key
         //for(int i = 0; i<key.length; i++)System.out.println(Integer.toHexString(key[i]));
 		return key;
 	}
 	
-	private byte[] generateKey(){
+	/**
+	 * Generates a DES-key based on two key-arrays
+	 * @return
+	 */
+	private byte[] genKeyFromArr(){
 		byte[] keyBytes = new byte[24];
 		keyBytes = Arrays.copyOf(genKey1, 24);
 		System.arraycopy(genKey2, 0, keyBytes, 8, 7);
 		System.arraycopy(genKey1, 0, keyBytes, 16, 7);
-		for(int i = 0; i<keyBytes.length; i++)System.out.println(Integer.toHexString(keyBytes[i]));
 		
-		//TODO: MEMO TO SELF: BRUK ARRAYS.HASH til sammenligning av verdiene
-		System.out.println(keyBytes.length);
+		//For printing av key
+		//for(int i = 0; i<keyBytes.length; i++)
+			//System.out.println(Byte.valueOf(keyBytes[i]).intValue());
+			//System.out.println(Integer.toHexString(keyBytes[i]));
+			//System.out.println(Integer.toString((keyBytes[i]), 16));
 		
+		
+		//TODO: MEMO TO SELF: BRUK ARRAYS.HASHCODE til sammenligning av verdiene
 		return keyBytes;
 	}
-	private void addToKeyArray(){
-		//TODO: MEMO TO SELF. BRUKE MODULO FOR Å PLUSSE PÅ ARRAYET?
-		Arrays.fill(genKey1, (byte)0x01);
-		Arrays.fill(genKey2, (byte)0x02);
+	
+	
+	/**
+	 * Makes the genKey1 array contain the next key. Next is increment of 1.
+	 */
+	private void nextKey1(){
+		if(numKeys1 == 72057594037927936L){
+			//TODO: siste key. stoppe program? sende en spesiell return-value? calle en avslutningsmetode?
+		}
+		genKey1[0]++;
+		for(int i = 0; i<6; i++){
+			if(genKey1[i] == 127){
+				if(change1[i] = true){
+					genKey1[i] = -128;
+					genKey1[i+1]++;
+					change1[i] = false;
+				}
+				else change1[i] = true;
+			}
+		}
+		numKeys1++;
+		
+		//For printing av keys
+		//for(int i = 0; i<genKey1.length; i++)
+		//	System.out.println(Byte.valueOf(genKey1[i]).intValue());
 	}
 	
-	private void fillKeyArray(){
-		Arrays.fill(genKey1, (byte)0x01);
-		Arrays.fill(genKey2, (byte)0x02);
+	/**
+	 * Makes the genKey2 array contain the next key. Next is increment of 1.
+	 */
+	private void nextKey2(){
+		if(numKeys2 == 72057594037927936L){
+			//TODO: siste key. stoppe program? sende en spesiell return-value? calle en avslutningsmetode?
+		}
+		genKey2[0]++;
+		for(int i = 0; i<6; i++){
+			if(genKey2[i] == 127){
+				if(change2[i] = true){
+					genKey2[i] = -128;
+					genKey2[i+1]++;
+					change2[i] = false;
+				}
+				else change2[i] = true;
+			}
+		}
+		numKeys2++;
+		
+		//For printing av keys
+		//for(int i = 0; i<genKey2.length; i++)
+		//	System.out.println(Byte.valueOf(genKey2[i]).intValue());		
 	}
-	
-	
 }
+
