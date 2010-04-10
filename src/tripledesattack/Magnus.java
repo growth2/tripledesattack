@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.IvParameterSpec;
+
 import javax.crypto.spec.SecretKeySpec;
 
 public class Magnus {
@@ -31,7 +31,6 @@ public class Magnus {
         }
 
         final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-        final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
         final Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, key);
 
@@ -53,7 +52,6 @@ public class Magnus {
         }
 
         final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-        final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
         final Cipher decipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
         decipher.init(Cipher.DECRYPT_MODE, key);
 

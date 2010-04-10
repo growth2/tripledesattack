@@ -5,50 +5,39 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 public class DES {
-	private byte[] keyBytes;
 
-//    public static void main(String[] args) throws Exception {
-//
-//        String text = "test123123123";
-//
-//        byte[] codedtext = new TDES().encrypt(text);
-//        String decodedtext = new TDES().decrypt(codedtext);
-//
-//        System.out.println(codedtext); // this is a byte array, you'll just see a reference to an array
-//        System.out.println(decodedtext); // This correctly shows "kyle boon"
-//    }
-    public DES(byte[] keyBytes){
-    	this.keyBytes = keyBytes;
+	private SecretKey key;
+	private Cipher cipher;
+	private byte[] plainTextBytes;
+//	private byte[] cipherText;
+
+    public DES(){
     }
-    
-    public byte[] encrypt(String message) throws Exception {
-        final SecretKey key = new SecretKeySpec(keyBytes, "DES");
-        final Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-        final byte[] plainTextBytes = message.getBytes("utf-8");
-        final byte[] cipherText = cipher.doFinal(plainTextBytes);
-        // final String encodedCipherText = new sun.misc.BASE64Encoder()
-        // .encode(cipherText);
-
+    public void setMode(int mode) throws Exception{
+    	 cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+         cipher.init(mode, key);
+    }
+    public void setKey(byte[] keyBytes){
+    	key = new SecretKeySpec(keyBytes, "DES");
+    }
+    public void setMessage(String message) throws Exception{
+    	plainTextBytes = message.getBytes("utf-8");
+    }
+//    public void setCipherText(byte[] cipherText) throws Exception{
+//    	plainTextBytes = message.getBytes("utf-8");
+//    }
+    public byte[] encrypt() throws Exception {
+    	byte[] cipherText = cipher.doFinal(plainTextBytes);
         return cipherText;
     }
-
-    public String decrypt(byte[] message) throws Exception {
-    	final SecretKey key = new SecretKeySpec(keyBytes, "DES");
-        final Cipher decipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-        decipher.init(Cipher.DECRYPT_MODE, key);
-        // final byte[] encData = new
-        // sun.misc.BASE64Decoder().decodeBuffer(message);
-        final byte[] plainText = decipher.doFinal(message);
-
-        return new String(plainText, "UTF-8");
-    }
+    //final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+    //final Cipher decipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
+    //decipher.init(Cipher.DECRYPT_MODE, key);
+    //final byte[] plainText = decipher.doFinal(message);
     
-    public void setKey(byte[] keyBytes){
-    	this.keyBytes = keyBytes;
-    }    
-    public byte[] getKey(){
-    	return keyBytes;
+    public String decrypt(byte[] cipherText) throws Exception {
+        byte[] plainText = cipher.doFinal(cipherText);
+        return new String(plainText, "UTF-8");
     }
 }
 
