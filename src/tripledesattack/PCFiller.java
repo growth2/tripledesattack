@@ -24,20 +24,13 @@ public class PCFiller {
 	public static HashMap<String, byte[]> fillPcTable(int numberOfPCs, byte[] key){
 		TDES tdes = new TDES();
 		tdes.setKey(key);
-		try {
-			tdes.setMode(Cipher.ENCRYPT_MODE);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		tdes.setMode(Cipher.ENCRYPT_MODE);
+
 		for (int i = 0; i<numberOfPCs; i++){
 			String message = createRandomHex(8);
-			try {
-				//TODO: Encrypt gir et byte-array tilbake. vi vil kanskje ha en hex-string? Rettelse: tror dette er OK
-				tdes.setMessage(message);
-				pcTable.put(message, tdes.encrypt());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			//TODO: Encrypt gir et byte-array tilbake. vi vil kanskje ha en hex-string? Rettelse: tror dette er OK
+			tdes.setMessage(message);
+			pcTable.put(message, tdes.encrypt());
 		}
 		return pcTable;
 	}
