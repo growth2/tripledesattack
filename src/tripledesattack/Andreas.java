@@ -19,6 +19,8 @@ public class Andreas {
         System.out.println(codedtext); // this is a byte array, you'll just see a reference to an array
         System.out.println(decodedtext); // This correctly shows "kyle boon"
     }
+    
+    
 
     public byte[] encrypt(String message) throws Exception {
         final MessageDigest md = MessageDigest.getInstance("md5");

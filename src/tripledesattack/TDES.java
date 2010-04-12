@@ -9,7 +9,7 @@ public class TDES {
 
 	private SecretKey key;
 	private Cipher cipher;
-	private byte[] plainTextBytes;
+	public byte[] plainTextBytes;
 //	private byte[] cipherText;
 
     public TDES(){
@@ -36,6 +36,7 @@ public class TDES {
 			e.printStackTrace();
 		}
     }
+
 //    public void setCipherText(byte[] cipherText) throws Exception{
 //    	plainTextBytes = message.getBytes("utf-8");
 //    }

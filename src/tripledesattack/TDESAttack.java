@@ -20,10 +20,12 @@ import sun.misc.BASE64Encoder;
 
 public class TDESAttack {
 	
-	private HashMap<String, byte[]> pcTable;
+	private HashMap<byte[], byte[]> pcTable;
 	private HashMap<byte[], byte[]> biTable = new HashMap<byte[], byte[]>();
-	private HashMap<String, Integer> pcHashTable = new HashMap<String, Integer>();
+	private HashMap<byte[], Integer> pcHashTable = new HashMap<byte[], Integer>();
 	private byte[] correctKey;
+	private byte[] correctKey1;
+	private byte[] correctKey2;
 	private long time;
 	private byte[] genKey1 = new byte[8], genKey2 = new byte[8];
 	private boolean[] change1 = new boolean[7];
@@ -32,7 +34,8 @@ public class TDESAttack {
 	private long numKeys2 = 0;
 	private DES des = new DES();
 	private byte[] cheatA;
-	private int plainTextNumber = 0;
+	private Iterator<byte[]> plaintTextIterator;
+	private Iterator<byte[]> pcIterator;
 
 	/**
 	 * Constructor
@@ -47,9 +50,11 @@ public class TDESAttack {
 		time = System.currentTimeMillis();
 		//--------------
 		
+		correctKey1 = key1.getBytes("utf-8");
 		correctKey = genKeyFromStr(key1, key2);
-		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), correctKey);
-		
+		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), genKeyFromArr());
+		plaintTextIterator = pcTable.keySet().iterator();
+		pcIterator = pcTable.keySet().iterator();
 		attackPart1();
 		
 		//Adm
@@ -64,7 +69,7 @@ public class TDESAttack {
 	 */
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		//TDESAttack attack = new TDESAttack(args[0], args[1], args[2]);
-		TDESAttack attack = new TDESAttack("10000", "test1234", "cipher99");
+		TDESAttack attack = new TDESAttack("100", "test1234", "cipher99");
 	}
 	
 	/**
@@ -75,22 +80,25 @@ public class TDESAttack {
 	 */
 	//TODO: dårlig navn
 	private void attackPart1() throws UnsupportedEncodingException{
-		makeCheatA();
-		for(int i = 0; i<100; i++){
-			des.setKey(genKey1);
-			des.initDES(Cipher.DECRYPT_MODE);
-			String result = new String(des.decrypt(cheatA), "UTF-8");
-			
-			if(pcTable.containsKey(result)){
-				biTable.put((des.decrypt(pcTable.get(result))), genKey1);
-				Arrays.fill(change1, false);
-				Arrays.fill(genKey1, (byte)-128);
-				makeCheatA();
+		
+		for(int i = 0; i<pcTable.size(); i++){
+			makeCheatA();
+			//72057594037927936L
+			for(long j = 0L; j<72057594037927936L; j++){
+				des.setKey(genKey1);
+				des.initDES(Cipher.DECRYPT_MODE);
+				
+				byte[] result = des.decrypt(cheatA);
+				byte[] currentPlainText = pcIterator.next();
+				if(Arrays.equals(result, currentPlainText)){
+					biTable.put((des.decrypt(pcTable.get(currentPlainText))), genKey1);
+					System.out.println("FOUND");
+					Arrays.fill(change1, false);
+					Arrays.fill(genKey1, (byte)-128);
+					break;
+				}
+				nextKey1();
 			}
-			else if(numKeys1 == 72057594037927936L){
-				makeCheatA();
-			}
-			nextKey1();
 		}
 	}
 	
@@ -100,10 +108,10 @@ public class TDESAttack {
 	 */
 	//TODO: denne er useless nå. men kan kanskje få bruk for i part 2 av angrepet
 	private void hashPCtable(){
-		Set<String> keySet = pcTable.keySet();
-		Iterator<String> keyIterator = keySet.iterator();
+		Set<byte[]> keySet = pcTable.keySet();
+		Iterator<byte[]> keyIterator = keySet.iterator();
 		while(keyIterator.hasNext()){
-			String currentKey = keyIterator.next();
+			byte[] currentKey = keyIterator.next();
 			int hashCode = pcTable.get(currentKey).hashCode();
 			pcHashTable.put(currentKey, hashCode);
 		}
@@ -198,17 +206,17 @@ public class TDESAttack {
 		//	System.out.println(Byte.valueOf(genKey2[i]).intValue());		
 	}
 	public void makeCheatA(){
-		Set keySet = pcTable.keySet();
-		Object[] plainTextArray = keySet.toArray();
 		
-		String plainText = plainTextArray[plainTextNumber].toString();
-		
+//		Set<byte[]> keySet = pcTable.keySet();
+//		keySet.iterator().next()
+//		Byte[] plainTextArray = (Byte[])keySet.toArray();
+//		
+//		byte plainText = plainTextArray[plainTextNumber];
+//		
+		des.plainTextBytes = plaintTextIterator.next();
 		des.setKey(genKey1);
 		des.initDES(Cipher.ENCRYPT_MODE);
-		des.setMessage(plainText);
 		cheatA = des.encrypt();	
-		
-		plainTextNumber++;
 	}
 }
 

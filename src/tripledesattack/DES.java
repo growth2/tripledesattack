@@ -9,7 +9,7 @@ public class DES {
 
 	private SecretKey key;
 	private Cipher cipher;
-	private byte[] plainTextBytes;
+	public byte[] plainTextBytes;
 //	private byte[] cipherText;
 
     public DES(){
