@@ -36,7 +36,7 @@ public class Magnus {
 
         final byte[] plainTextBytes = message.getBytes("utf-8");
         final byte[] cipherText = cipher.doFinal(plainTextBytes);
-         final String encodedCipherText = new sun.misc.BASE64Encoder()
+//         final String encodedCipherText = new sun.misc.BASE64Encoder()
         // .encode(cipherText);
 
         return cipherText;
