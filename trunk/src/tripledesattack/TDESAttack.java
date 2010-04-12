@@ -57,6 +57,7 @@ public class TDESAttack {
 	    System.out.println("The test took " + time + " milliseconds");
 	    //---------
 	}
+	
 	/**
 	 * @param args0: Number of PC-pairs. args1: Key1 as 8-char String. args2: Key2 as 8-char String.
 	 * @throws UnsupportedEncodingException 
@@ -65,6 +66,7 @@ public class TDESAttack {
 		//TDESAttack attack = new TDESAttack(args[0], args[1], args[2]);
 		TDESAttack attack = new TDESAttack("10000", "test1234", "cipher99");
 	}
+	
 	/**
 	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
 	 * the corresponding ciphertext is decrypted using the same key.
@@ -73,27 +75,22 @@ public class TDESAttack {
 	 */
 	//TODO: dårlig navn
 	private void attackPart1() throws UnsupportedEncodingException{
-		String result = "";
-
-		String cipherText = "test1234"; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
-		byte[] cipherBytes = new byte[8];
-		Arrays.fill(cipherBytes, (byte)0);
-		//String bytesAsString = new BASE64Encoder().encode(cipherBytes);
-		//String cipherText = pcTable.; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
-
-		try {
-	//		byte[] encryptedBytes2 = new BASE64Decoder().decodeBuffer(cipherBytes);
+		makeCheatA();
+		for(int i = 0; i<100; i++){
 			des.setKey(genKey1);
 			des.initDES(Cipher.DECRYPT_MODE);
-			result = des.decrypt(cheatA);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if(pcTable.containsKey(result)){
-			byte[] corrCipherText = pcTable.get(result);
-			biTable.put(corrCipherText, genKey1);
+			String result = new String(des.decrypt(cheatA), "UTF-8");
+			
+			if(pcTable.containsKey(result)){
+				biTable.put((des.decrypt(pcTable.get(result))), genKey1);
+				Arrays.fill(change1, false);
+				Arrays.fill(genKey1, (byte)-128);
+				makeCheatA();
+			}
+			nextKey1();
 		}
 	}
+	
 	/**
 	 * Reads of the pcTable, creates a hashcode of each Value(cipertexts) and inserts into a
 	 * new HashMap pcHashTable. Keys are the same.
