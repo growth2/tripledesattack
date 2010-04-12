@@ -21,7 +21,7 @@ import sun.misc.BASE64Encoder;
 public class TDESAttack {
 	
 	private HashMap<String, byte[]> pcTable;
-	private HashMap<byte[], byte[]> pkTable = new HashMap<byte[], byte[]>();
+	private HashMap<byte[], byte[]> biTable = new HashMap<byte[], byte[]>();
 	private HashMap<String, Integer> pcHashTable = new HashMap<String, Integer>();
 	private byte[] correctKey;
 	private long time;
@@ -31,6 +31,7 @@ public class TDESAttack {
 	private long numKeys1 = 0;
 	private long numKeys2 = 0;
 	private DES des = new DES();
+	private byte[] cheatA;
 
 	/**
 	 * Constructor
@@ -67,27 +68,25 @@ public class TDESAttack {
 	/**
 	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
 	 * the corresponding ciphertext is decrypted using the same key.
-	 * The new plaintext and and the key is stored in pkTable(pk -> PlaintextKey).
+	 * The new plaintext and and the key is stored in biTable.
 	 * @throws UnsupportedEncodingException
 	 */
 	//TODO: dårlig navn
 	private void attackPart1() throws UnsupportedEncodingException{
 		String result = "";
-		String cipherText = "test1234"; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
-		byte[] cipherBytes = new byte[8];
-		Arrays.fill(cipherBytes, (byte)0);
-		String bytesAsString = new BASE64Encoder().encode(cipherBytes);
+		//String cipherText = pcTable.; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
+
 		try {
 	//		byte[] encryptedBytes2 = new BASE64Decoder().decodeBuffer(cipherBytes);
 			des.setKey(genKey1);
 			des.setMode(Cipher.DECRYPT_MODE);
-			result = des.decrypt(cipherBytes);
+			result = des.decrypt(cheatA);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if(pcTable.containsKey(result)){
 			byte[] corrCipherText = pcTable.get(result);
-			pkTable.put(corrCipherText, genKey1);
+			biTable.put(corrCipherText, genKey1);
 		}
 	}
 	/**
