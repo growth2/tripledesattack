@@ -32,6 +32,7 @@ public class TDESAttack {
 	private long numKeys2 = 0;
 	private DES des = new DES();
 	private byte[] cheatA;
+	private int plainTextNumber = 0;
 
 	/**
 	 * Constructor
@@ -48,7 +49,6 @@ public class TDESAttack {
 		
 		correctKey = genKeyFromStr(key1, key2);
 		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), correctKey);
-		
 		
 		attackPart1();
 		
@@ -74,12 +74,17 @@ public class TDESAttack {
 	//TODO: dårlig navn
 	private void attackPart1() throws UnsupportedEncodingException{
 		String result = "";
+
+		String cipherText = "test1234"; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
+		byte[] cipherBytes = new byte[8];
+		Arrays.fill(cipherBytes, (byte)0);
+		//String bytesAsString = new BASE64Encoder().encode(cipherBytes);
 		//String cipherText = pcTable.; //TODO: hva skal inn her nå igjen....bare masse random ciphertexts?
 
 		try {
 	//		byte[] encryptedBytes2 = new BASE64Decoder().decodeBuffer(cipherBytes);
 			des.setKey(genKey1);
-			des.setMode(Cipher.DECRYPT_MODE);
+			des.initDES(Cipher.DECRYPT_MODE);
 			result = des.decrypt(cheatA);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -194,6 +199,19 @@ public class TDESAttack {
 		//For printing av keys
 		//for(int i = 0; i<genKey2.length; i++)
 		//	System.out.println(Byte.valueOf(genKey2[i]).intValue());		
+	}
+	public void makeCheatA(){
+		Set keySet = pcTable.keySet();
+		Object[] plainTextArray = keySet.toArray();
+		
+		String plainText = plainTextArray[plainTextNumber].toString();
+		
+		des.setKey(genKey1);
+		des.initDES(Cipher.ENCRYPT_MODE);
+		des.setMessage(plainText);
+		cheatA = des.encrypt();	
+		
+		plainTextNumber++;
 	}
 }
 
