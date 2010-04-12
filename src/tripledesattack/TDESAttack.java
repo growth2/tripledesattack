@@ -87,6 +87,9 @@ public class TDESAttack {
 				Arrays.fill(genKey1, (byte)-128);
 				makeCheatA();
 			}
+			else if(numKeys1 == 72057594037927936L){
+				makeCheatA();
+			}
 			nextKey1();
 		}
 	}
@@ -152,9 +155,6 @@ public class TDESAttack {
 	 * Makes the genKey1 array contain the next key. Next is increment of 1.
 	 */
 	private void nextKey1(){
-		if(numKeys1 == 72057594037927936L){
-			//TODO: siste key. stoppe program? sende en spesiell return-value? calle en avslutningsmetode?
-		}
 		genKey1[0]++;
 		for(int i = 0; i<6; i++){
 			if(genKey1[i] == 127){
