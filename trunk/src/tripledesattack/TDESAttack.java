@@ -24,8 +24,8 @@ public class TDESAttack {
 	private HashMap<byte[], byte[]> biTable = new HashMap<byte[], byte[]>();
 	private HashMap<byte[], Integer> pcHashTable = new HashMap<byte[], Integer>();
 	private byte[] correctKey;
-	private byte[] correctKey1;
-	private byte[] correctKey2;
+	private byte[] i = new byte[8];
+	private byte[] j = new byte[8];
 	private long time;
 	private byte[] genKey1 = new byte[8], genKey2 = new byte[8];
 	private boolean[] change1 = new boolean[7];
@@ -33,31 +33,56 @@ public class TDESAttack {
 	private long numKeys1 = 0;
 	private long numKeys2 = 0;
 	private DES des = new DES();
+	private TDES tdes = new TDES();
 	private byte[] cheatA;
 	private Iterator<byte[]> plaintTextIterator;
 	private Iterator<byte[]> pcIterator;
-
+	private Iterator<byte[]> biIterator;
+	
 	/**
 	 * Constructor
-	 * @throws UnsupportedEncodingException 
 	 */
-	public TDESAttack(String numberOfPCs, String key1, String key2) throws NumberFormatException, UnsupportedEncodingException{
-		//Preparations
+	public TDESAttack(String numberOfPCs, String key1, String key2) {
+		//--------------Preparations
 		Arrays.fill(change1, false);
 		Arrays.fill(change2, false);
-		Arrays.fill(genKey1, (byte)-128);
-		Arrays.fill(genKey2, (byte)-128);
+		Arrays.fill(i, (byte)-127);
+		i[0] = -126;
+		i[1] = -126;
+		i[2] = -126;
+
+		//i[0] = -126;
+		Arrays.fill(j, (byte)-127);
+		j[0] = -126;
+		j[1] = -126;
+		j[2] = -126;
+
+		Arrays.fill(genKey1, (byte)-127);
+		Arrays.fill(genKey2, (byte)-127);
 		time = System.currentTimeMillis();
 		//--------------
 		
-		correctKey1 = key1.getBytes("utf-8");
-		correctKey = genKeyFromStr(key1, key2);
-		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), genKeyFromArr());
-		plaintTextIterator = pcTable.keySet().iterator();
-		pcIterator = pcTable.keySet().iterator();
-		attackPart1();
+		correctKey = genKeyFromArr(i,j);
+		pcTable = PCFiller.fillPcTable(Integer.parseInt(numberOfPCs), correctKey);
+		System.out.print("Correct Key #1 is: ");
+		for(int x = 0; x<i.length; x++)System.out.print(i[x] + " ");
+		System.out.print("\nCorrect Key #2 is: ");
+		for(int x = 0; x<j.length; x++)System.out.print(j[x] + " ");
+		System.out.println();
 		
-		//Adm
+		plaintTextIterator = pcTable.keySet().iterator();
+
+		Arrays.fill(change1, false);
+		Arrays.fill(change2, false);
+		
+		for(int i = 0; i<pcTable.size(); i++){
+		makeCheatA();
+		if(attackPart1() == true)break;
+		}
+		
+		attackPart2();
+		
+		//-------Adm
 		time = System.currentTimeMillis() - time;
 	    System.out.println("The test took " + time + " milliseconds");
 	    //---------
@@ -65,42 +90,87 @@ public class TDESAttack {
 	
 	/**
 	 * @param args0: Number of PC-pairs. args1: Key1 as 8-char String. args2: Key2 as 8-char String.
-	 * @throws UnsupportedEncodingException 
 	 */
-	public static void main(String[] args) throws UnsupportedEncodingException {
+	public static void main(String[] args){
 		//TDESAttack attack = new TDESAttack(args[0], args[1], args[2]);
-		TDESAttack attack = new TDESAttack("100", "test1234", "cipher99");
+		TDESAttack attack = new TDESAttack("1", "test1234", "cipher99");
+	}
+	
+	/**
+	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
+	 * the corresponding ciphertext is decrypted using the same key.
+	 * The new plaintext and and the key is stored in biTable. Returns true if match is found. False otherwise.
+	 */
+	private boolean attackPart1(){
+			for(long j = 0L; j<72057594037927936L; j++){
+				des.setKey(genKey1);
+				des.initDES(Cipher.DECRYPT_MODE);
+				pcIterator = pcTable.keySet().iterator();
+				byte[] result = des.decrypt(cheatA);
+				if(result != null){
+					while(pcIterator.hasNext()){
+						byte[] currentPlainText = pcIterator.next();
+						if(Arrays.equals(result, currentPlainText)){
+							byte [] cipherText = pcTable.get(currentPlainText);
+							biTable.put((des.decrypt(cipherText)), genKey1);
+							return true;
+						}
+					}
+				}
+				nextKey1();
+			}
+			return false;
+		
 	}
 	
 	/**
 	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
 	 * the corresponding ciphertext is decrypted using the same key.
 	 * The new plaintext and and the key is stored in biTable.
-	 * @throws UnsupportedEncodingException
 	 */
-	//TODO: dårlig navn
-	private void attackPart1() throws UnsupportedEncodingException{
-		
-		for(int i = 0; i<pcTable.size(); i++){
-			makeCheatA();
-			//72057594037927936L
+	private void attackPart2(){
+		for(int i = 0; i<biTable.size(); i++){
 			for(long j = 0L; j<72057594037927936L; j++){
-				des.setKey(genKey1);
+				des.setKey(genKey2);
 				des.initDES(Cipher.DECRYPT_MODE);
-				
+				biIterator = biTable.keySet().iterator();
 				byte[] result = des.decrypt(cheatA);
-				byte[] currentPlainText = pcIterator.next();
-				if(Arrays.equals(result, currentPlainText)){
-					biTable.put((des.decrypt(pcTable.get(currentPlainText))), genKey1);
-					System.out.println("FOUND");
-					Arrays.fill(change1, false);
-					Arrays.fill(genKey1, (byte)-128);
-					break;
+				while(biIterator.hasNext()){
+					byte[] currentB = biIterator.next();
+					if(Arrays.equals(result, currentB)){
+						verify(biTable.get(currentB), genKey2);
+						Arrays.fill(change2, false);
+						Arrays.fill(genKey2, (byte)-128);
+						return;
+					}
 				}
-				nextKey1();
+				nextKey2();
 			}
 		}
 	}
+	
+	/**
+	 * Verifies that the found keys are correct by running 3DES on 5 PC-pairs.
+	 */
+	private void verify(byte[] key1, byte[] key2){
+		tdes.setKey(genKeyFromArr(key1, key2));
+		tdes.setMode(Cipher.ENCRYPT_MODE);
+		Iterator<byte[]> pcIterator = pcTable.keySet().iterator();
+		for(int i = 0; i<1; i++){
+			byte[] plainText = pcIterator.next();
+			tdes.plainTextBytes = plainText;
+			if(!Arrays.equals(pcTable.get(plainText), tdes.encrypt())){
+				return;
+			}
+		}
+		System.out.println("SOLUTION FOUND!");
+		System.out.print("Key #1 was: ");
+		for(int i = 0; i<key1.length; i++)System.out.print(key1[i] + " ");
+		System.out.print("\nKey #2 was: ");
+		for(int i = 0; i<key2.length; i++)System.out.print(key2[i] + " ");
+		System.exit(0);
+	}
+	
 	
 	/**
 	 * Reads of the pcTable, creates a hashcode of each Value(cipertexts) and inserts into a
@@ -119,29 +189,30 @@ public class TDESAttack {
 	
 	/**
 	 * Generates a DES-key based on two keys represented as Strings.
+	 * -----------OBSOLETE. STRINGS CAUSE HAVOC.----------
 	 * 
 	 * @param keyString1
 	 * @param keyString2
 	 * @return A DES-key as a byte[]-array
 	 * @throws UnsupportedEncodingException
 	 */
-	private byte[] genKeyFromStr(String keyString1, String keyString2) throws UnsupportedEncodingException{
-		String keyString = keyString1 + keyString2;
-		byte[] keyByteArray = keyString.getBytes("utf-8");
-        byte[] key = Arrays.copyOf(keyByteArray, 24);
-        for (int j = 0, k = 16; j < 8;) {
-                key[k++] = key[j++];
-        }
-        //For printing av key
-        //for(int i = 0; i<key.length; i++)System.out.println(Integer.toHexString(key[i]));
-		return key;
-	}
+//	private byte[] genKeyFromStr(String keyString1, String keyString2) throws UnsupportedEncodingException{
+//		String keyString = keyString1 + keyString2;
+//		byte[] keyByteArray = keyString.getBytes("utf-8");
+//        byte[] key = Arrays.copyOf(keyByteArray, 24);
+//        for (int j = 0, k = 16; j < 8;) {
+//                key[k++] = key[j++];
+//        }
+//        //For printing av key
+//        //for(int i = 0; i<key.length; i++)System.out.println(Integer.toHexString(key[i]));
+//		return key;
+//	}
 	
 	/**
-	 * Generates a DES-key based on two key-arrays
+	 * Generates a DES-key based on two supplied key-arrays
 	 * @return
 	 */
-	private byte[] genKeyFromArr(){
+	private byte[] genKeyFromArr(byte[] genKey1, byte[] genKey2){
 		byte[] keyBytes = new byte[24];
 		keyBytes = Arrays.copyOf(genKey1, 24);
 		System.arraycopy(genKey2, 0, keyBytes, 8, 7);
@@ -214,7 +285,7 @@ public class TDESAttack {
 //		byte plainText = plainTextArray[plainTextNumber];
 //		
 		des.plainTextBytes = plaintTextIterator.next();
-		des.setKey(genKey1);
+		des.setKey(i);
 		des.initDES(Cipher.ENCRYPT_MODE);
 		cheatA = des.encrypt();	
 	}
