@@ -53,7 +53,7 @@ public class DES {
             return cipher.doFinal(cipherText);
 //			return new String(plainText, "UTF-8");
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
     }
