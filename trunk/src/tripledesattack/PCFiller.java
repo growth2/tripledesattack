@@ -10,6 +10,7 @@ import javax.crypto.Cipher;
 
 /**
  * @author Andreas Urke
+ * @author Magnus Lervåg
  * PCFiller returns a HashMap filled with random pairs of plaintext and ciphertext. 
  * One pair can never appear twice. Key and number of pairs is given by constructor. 
  */
@@ -40,19 +41,4 @@ public class PCFiller {
 		}
 		return pcTable;
 	}
-
-//	private static String createRandomHex(int length){
-//		StringBuilder sb;
-//		do {
-//			Random random = new Random();
-//			sb = new StringBuilder();
-//			while (sb.length() < length) {
-//				sb.append(Integer.toHexString(random.nextInt(16)));
-//			}
-//		} while (pTextTable.containsValue(sb.toString()));
-//		pTextTable.put(count, sb.toString());
-//		count++;
-//		return sb.toString();
-//	}
-
 }
