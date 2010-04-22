@@ -14,7 +14,7 @@ public class TDES {
 
     public TDES(){
     	try {
-			cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
+			cipher = Cipher.getInstance("DESede/ECB/NoPadding");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

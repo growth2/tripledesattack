@@ -27,7 +27,7 @@ public class PCFiller {
 		tdes.setMode(Cipher.ENCRYPT_MODE);
 
 		for (int i = 0; i<numberOfPCs; i++){
-			byte[] plainTextBytes = new byte[7];
+			byte[] plainTextBytes = new byte[8];
 			Random random = new Random();
 			do{
 			random.nextBytes(plainTextBytes);

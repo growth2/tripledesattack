@@ -46,19 +46,21 @@ public class TDESAttack {
 		//--------------Preparations
 		Arrays.fill(change1, false);
 		Arrays.fill(change2, false);
-		Arrays.fill(i, (byte)-127);
-		i[0] = -126;
-		i[1] = -126;
-		i[2] = -126;
+		Arrays.fill(i, (byte)-128);
+		i[0] = 114;
+		i[1] = 0;
+		i[2] = -16;
+		i[3] = -116;
 
 		//i[0] = -126;
-		Arrays.fill(j, (byte)-127);
-		j[0] = -126;
-		j[1] = -126;
-		j[2] = -126;
+		Arrays.fill(j, (byte)-128);
+		j[0] = 56;
+		j[1] = 98;
+		j[2] = -12;
+		j[3] = -120;
 
-		Arrays.fill(genKey1, (byte)-127);
-		Arrays.fill(genKey2, (byte)-127);
+		Arrays.fill(genKey1, (byte)-128);
+		Arrays.fill(genKey2, (byte)-128);
 		time = System.currentTimeMillis();
 		//--------------
 		
@@ -120,13 +122,10 @@ public class TDESAttack {
 				nextKey1();
 			}
 			return false;
-		
 	}
 	
 	/**
-	 * Decrypts ciphertext with all keys. Compares with pcTable. If a decrypted text matches a plaintext,
-	 * the corresponding ciphertext is decrypted using the same key.
-	 * The new plaintext and and the key is stored in biTable.
+	 * Decrypts ciphertext with all keys. Compares with pcTable. 
 	 */
 	private void attackPart2(){
 		for(int i = 0; i<biTable.size(); i++){
@@ -135,15 +134,16 @@ public class TDESAttack {
 				des.initDES(Cipher.DECRYPT_MODE);
 				biIterator = biTable.keySet().iterator();
 				byte[] result = des.decrypt(cheatA);
+//				if(result != null){
 				while(biIterator.hasNext()){
 					byte[] currentB = biIterator.next();
 					if(Arrays.equals(result, currentB)){
 						verify(biTable.get(currentB), genKey2);
 						Arrays.fill(change2, false);
 						Arrays.fill(genKey2, (byte)-128);
-						return;
 					}
 				}
+//				}
 				nextKey2();
 			}
 		}
@@ -168,6 +168,8 @@ public class TDESAttack {
 		for(int i = 0; i<key1.length; i++)System.out.print(key1[i] + " ");
 		System.out.print("\nKey #2 was: ");
 		for(int i = 0; i<key2.length; i++)System.out.print(key2[i] + " ");
+		time = System.currentTimeMillis() - time;
+	    System.out.println("\nThe test took " + time + " milliseconds");
 		System.exit(0);
 	}
 	
@@ -215,8 +217,8 @@ public class TDESAttack {
 	private byte[] genKeyFromArr(byte[] genKey1, byte[] genKey2){
 		byte[] keyBytes = new byte[24];
 		keyBytes = Arrays.copyOf(genKey1, 24);
-		System.arraycopy(genKey2, 0, keyBytes, 8, 7);
-		System.arraycopy(genKey1, 0, keyBytes, 16, 7);
+		System.arraycopy(genKey2, 0, keyBytes, 8, 8);
+		System.arraycopy(genKey1, 0, keyBytes, 16, 8);
 		
 		//For printing av key
 		//for(int i = 0; i<keyBytes.length; i++)
@@ -234,12 +236,12 @@ public class TDESAttack {
 	 * Makes the genKey1 array contain the next key. Next is increment of 1.
 	 */
 	private void nextKey1(){
-		genKey1[0]++;
+		genKey1[0]+=2;
 		for(int i = 0; i<6; i++){
-			if(genKey1[i] == 127){
+			if(genKey1[i] == 126){
 				if(change1[i] = true){
 					genKey1[i] = -128;
-					genKey1[i+1]++;
+					genKey1[i+1]+=2;
 					change1[i] = false;
 				}
 				else change1[i] = true;
@@ -259,12 +261,12 @@ public class TDESAttack {
 		if(numKeys2 == 72057594037927936L){
 			//TODO: siste key. stoppe program? sende en spesiell return-value? calle en avslutningsmetode?
 		}
-		genKey2[0]++;
+		genKey2[0]+=2;
 		for(int i = 0; i<6; i++){
-			if(genKey2[i] == 127){
+			if(genKey2[i] == 126){
 				if(change2[i] = true){
 					genKey2[i] = -128;
-					genKey2[i+1]++;
+					genKey2[i+1]+=2;
 					change2[i] = false;
 				}
 				else change2[i] = true;
