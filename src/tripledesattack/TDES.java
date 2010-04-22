@@ -1,6 +1,5 @@
 package tripledesattack;
 
-import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -10,7 +9,6 @@ public class TDES {
 	private SecretKey key;
 	private Cipher cipher;
 	public byte[] plainTextBytes;
-//	private byte[] cipherText;
 
     public TDES(){
     	try {
@@ -29,17 +27,7 @@ public class TDES {
     public void setKey(byte[] keyBytes){
     	key = new SecretKeySpec(keyBytes, "DESede");
     }
-    public void setMessage(String message) {
-    	try {
-			plainTextBytes = message.getBytes("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-    }
 
-//    public void setCipherText(byte[] cipherText) throws Exception{
-//    	plainTextBytes = message.getBytes("utf-8");
-//    }
     public byte[] encrypt()  {
         byte[] cipherText;
 		try {
