@@ -1,23 +1,17 @@
 /**
- * 
- */
-package tripledesattack;
-
-import java.util.HashMap;
-import java.util.Random;
-
-import javax.crypto.Cipher;
-
-/**
+ * Class PCFiller
  * @author Andreas Urke
  * @author Magnus Lervåg
  * PCFiller returns a HashMap filled with random pairs of plaintext and ciphertext. 
  * One pair can never appear twice. Key and number of pairs is given by constructor. 
  */
+package tripledesattack;
 
+import java.util.HashMap;
+import java.util.Random;
+import javax.crypto.Cipher;
 
 public class PCFiller {
-
 	private static HashMap<byte[], byte[]> pcTable = new HashMap<byte[], byte[]>();
 	private static HashMap<Integer, Integer> pTextTable = new HashMap<Integer, Integer>();
 	private static Integer count = 0;
