@@ -8,6 +8,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -161,8 +162,30 @@ public class Parser {
 		return findValue(2);
 	}
 
-	
-
+	public HashMap<String, String> getOptions(){
+		HashMap<String, String> options = new HashMap<String, String>();
+		while (xstatScanner.hasNextLine()){
+			if ((xstatScanner.nextLine().indexOf("Options:")) != -1){
+				break;
+			}		
+		}
+		while((xstatScanner.nextLine().indexOf("*s/end")) == -1){
+			Scanner lineScanner;
+			String key = xstatScanner.nextLine();
+			lineScanner = new Scanner(key);
+			lineScanner.useDelimiter("\"");
+			key = lineScanner.next();
+			String desc = xstatScanner.nextLine();
+			System.out.println(desc);
+			lineScanner = new Scanner(desc);
+			lineScanner = lineScanner.useDelimiter("\"");
+			desc = lineScanner.next();
+			options.put(key, desc);
+			
+			
+		}
+		return options;
+	}
 	
 	private String findValue(int mode){
 		xconfScanner.reset();
