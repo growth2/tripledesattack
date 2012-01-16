@@ -1,13 +1,10 @@
 
-OK
-xstat
-
 *s SystemUnit:
      Product: "TANDBERG VCS"
-     Uptime: 1842857
-     SystemTime: "2012-01-16 08:04:52"
+     Uptime: 1865456
+     SystemTime: "2012-01-16 14:21:30"
      TimeZone: "Europe/Oslo"
-     LocalTime: "2012-01-16 09:04:52"
+     LocalTime: "2012-01-16 15:21:30"
      Software:
        Version: "X7.0.2"
        Build: "269777"
@@ -381,6 +378,22 @@ xstat
              Port: 5080
              LastStatusChange: "2012-01-09 10:45:14"
              Server: ""
+     Zone 2:
+       Name: "To Microsoft OCS/Lync server via B2BUA"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+       Status: Failed
+       Cause: System unreachable
+       Type: Neighbor
+       Neighbor:
+         Peer 1:
+           SIP:
+             Status: Failed
+             Cause: No response from system
+             Address: "10.19.17.160"
+             Port: 65070
+             LastStatusChange: "2012-01-16 15:20:18"
 *s/end
 
 *s Alternates: /
@@ -417,6 +430,16 @@ xstat
        Bandwidth:
          LocalUsage: 0
          ClusterUsage: 0
+     Link 7:
+       Name: "Zone002ToDefaultSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 8:
+       Name: "Zone002ToTraversalSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
 *s/end
 
 *s Pipes:
@@ -434,7 +457,7 @@ xstat
        SerialNumber: "67c98d12-3c29-11e1-b55f-0010f320f75a"
        Authenticated: False
        CreationTime: "2012-01-11 08:53:53"
-       Duration: 432659
+       Duration: 455257
        VendorInfo: "TANDBERG"
        H323:
          Type: Endpoint
@@ -755,7 +778,7 @@ xstat
              Name: ""
          Last:
            Packet:
-             Received: 184284655
+             Received: 186545159
          Close:
            In: 900
          Secure: False
@@ -897,7 +920,7 @@ xstat
              Group: "Fan"
            ID 9:
              DisplayName: "Fan 2"
-             Value: "10546 RPM  (min = 7670 RPM, div = 8)"
+             Value: "9375 RPM  (min = 7670 RPM, div = 8)"
              Group: "Fan"
            ID 10:
              DisplayName: "Fan 3"
@@ -905,15 +928,15 @@ xstat
              Group: "Fan"
            ID 11:
              DisplayName: "Sys Temp1"
-             Value: "+29.0 C  (high = +45.0 C)                  sensor = thermistor"
+             Value: "+27.0 C  (high = +45.0 C)                  sensor = thermistor"
              Group: "Temperature"
            ID 12:
              DisplayName: "Sys Temp2"
-             Value: "+30.0 C  (high = +45.0 C)                  sensor = thermistor"
+             Value: "+28.0 C  (high = +45.0 C)                  sensor = thermistor"
              Group: "Temperature"
            ID 13:
              DisplayName: "CPU Temp"
-             Value: "+27.0 C  (high = +50.0 C)                  sensor = thermal diode"
+             Value: "+26.0 C  (high = +50.0 C)                  sensor = thermal diode"
              Group: "Temperature"
            ID 14:
              DisplayName: "Core 0"
@@ -921,11 +944,11 @@ xstat
              Group: "Temperature"
            ID 15:
              DisplayName: "Core 1"
-             Value: "+31.0 C  (high = +76.0 C, crit = +100.0 C)"
+             Value: "+30.0 C  (high = +76.0 C, crit = +100.0 C)"
              Group: "Temperature"
        LastUpdate:
-         Time: "2012-01-16 09:04:41"
-         SecondsSinceLastRefresh: "11"
+         Time: "2012-01-16 15:21:10"
+         SecondsSinceLastRefresh: "20"
 *s/end
 
 *s FindMeManager: /
