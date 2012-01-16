@@ -1,0 +1,370 @@
+
+
+xconf
+*c xConfiguration Login Remote Protocol: LDAP
+*c xConfiguration Login Remote LDAP Server Address: ""
+*c xConfiguration Login Remote LDAP Server FQDNResolution: AddressRecord
+*c xConfiguration Login Remote LDAP Server Port: 389
+*c xConfiguration Login Remote LDAP VCS BindUsername: ""
+*c xConfiguration Login Remote LDAP VCS BindPassword: "{cipher}95XVeDlmfqLuTs8KDWfNXw=="
+*c xConfiguration Login Remote LDAP VCS BindDN: ""
+*c xConfiguration Login Remote LDAP BaseDN Accounts: ""
+*c xConfiguration Login Remote LDAP BaseDN Groups: ""
+*c xConfiguration Login Remote LDAP Encryption: Off
+*c xConfiguration Login Remote LDAP SASL: DIGEST-MD5
+*c xConfiguration Login Remote LDAP CRLCheck: None
+*c xConfiguration Login Remote LDAP DirectoryType: ActiveDirectory
+*c xConfiguration Login Administrator Source: Local
+*c xConfiguration Login User Source: Local
+*c xConfiguration SystemUnit Name: "VCS Demo"
+*c xConfiguration SystemUnit Password: "{cipher}3wG/YmZ7scTODGmjPQ3/+A=="
+*c xConfiguration SystemUnit StrictPassword Enforce: Off
+*c xConfiguration SystemUnit Maintenance Mode: Off
+*c xConfiguration Option 1 Key: "116341X10-1-EB3B3A96"
+*c xConfiguration Option 2 Key: "116341P00-1-CCFD4C0D"
+*c xConfiguration Option 3 Key: "116341G00-1-4FC6016C"
+*c xConfiguration Option 4 Key: "116341J00-1-2274803A"
+*c xConfiguration Option 5 Key: "116341Y100-1-328121F5"
+*c xConfiguration Ethernet 1 Speed: Auto
+*c xConfiguration Ethernet 1 IP V4 Address: "10.19.17.160"
+*c xConfiguration Ethernet 1 IP V4 SubnetMask: "255.255.255.128"
+*c xConfiguration Ethernet 1 IP V6 Address: ""
+*c xConfiguration Ethernet 2 Speed: Auto
+*c xConfiguration Ethernet 2 IP V4 Address: "192.168.0.100"
+*c xConfiguration Ethernet 2 IP V4 SubnetMask: "255.255.255.0"
+*c xConfiguration Ethernet 2 IP V6 Address: ""
+*c xConfiguration IPProtocol: IPv4
+*c xConfiguration IP Gateway: "10.19.17.129"
+*c xConfiguration IP QoS Mode: None
+*c xConfiguration IP QoS Value: 0
+*c xConfiguration IP V6 Gateway: ""
+*c xConfiguration IP DNS Server 1 Address: ""
+*c xConfiguration IP DNS Server 2 Address: ""
+*c xConfiguration IP DNS Server 3 Address: ""
+*c xConfiguration IP DNS Server 4 Address: ""
+*c xConfiguration IP DNS Server 5 Address: ""
+*c xConfiguration IP DNS Domain Name: "lab24.local"
+*c xConfiguration IP DNS Hostname: "vcsc"
+*c xConfiguration IP Ephemeral PortRange Start: 40000
+*c xConfiguration IP Ephemeral PortRange End: 49999
+*c xConfiguration IP RFC4821 Mode: Disabled
+*c xConfiguration NTP Address: "pool.ntp.org"
+*c xConfiguration TimeZone Name: "Europe/Oslo"
+*c xConfiguration LDAP Server Address: ""
+*c xConfiguration LDAP Server Port: 389
+*c xConfiguration LDAP UserDN: ""
+*c xConfiguration LDAP Password: "{cipher}w4+7RTe/5vb070ibScZdZw=="
+*c xConfiguration LDAP Encryption: Off
+*c xConfiguration SNMP Mode: On
+*c xConfiguration SNMP CommunityName: "public"
+*c xConfiguration SNMP SystemContact: ""
+*c xConfiguration SNMP SystemLocation: ""
+*c xConfiguration SNMP V1 Mode: On
+*c xConfiguration SNMP V2c Mode: On
+*c xConfiguration SNMP V3 Mode: On
+*c xConfiguration SNMP V3 UserName: ""
+*c xConfiguration SNMP V3 Authentication Mode: Off
+*c xConfiguration SNMP V3 Authentication Type: SHA
+*c xConfiguration SNMP V3 Authentication Password: "{cipher}SNXVf85m+UFzVT4D5+zY1A=="
+*c xConfiguration SNMP V3 Privacy Mode: On
+*c xConfiguration SNMP V3 Privacy Type: AES
+*c xConfiguration SNMP V3 Privacy Password: "{cipher}MmX5rwC3stKqxWFy29QZ0g=="
+*c xConfiguration Administration TimeOut: 30
+*c xConfiguration Administration MaxConcurrentSessions PerUser: 0
+*c xConfiguration Administration MaxConcurrentSessions Total: 0
+*c xConfiguration Administration Telnet Mode: On
+*c xConfiguration Administration SSH Mode: On
+*c xConfiguration Administration HTTP Mode: On
+*c xConfiguration Administration HTTPS Mode: On
+*c xConfiguration Administration HTTPS RequireClientCertificate: Off
+*c xConfiguration Administration LCDPanel Mode: On
+*c xConfiguration ExternalManager Address: "10.19.17.161"
+*c xConfiguration ExternalManager Path: "tms/public/external/management/systemmanagementservice.asmx"
+*c xConfiguration ExternalManager Protocol: HTTP
+*c xConfiguration ExternalManager Server Certificate Verification Mode: On
+*c xConfiguration Error Reports Mode: Off
+*c xConfiguration Error Reports URL: "https://vcser.tandberg.com/submitapplicationerror/"
+*c xConfiguration Log Level: 1
+*c xConfiguration Log Server Address: ""
+*c xConfiguration Registration RestrictionPolicy Mode: None
+*c xConfiguration Registration RestrictionPolicy Service Protocol: HTTP
+*c xConfiguration Registration RestrictionPolicy Service TLS Verify Mode: On
+*c xConfiguration Registration RestrictionPolicy Service TLS CRLCheck Mode: Off
+*c xConfiguration Registration RestrictionPolicy Service Server 1 Address: ""
+*c xConfiguration Registration RestrictionPolicy Service Server 2 Address: ""
+*c xConfiguration Registration RestrictionPolicy Service Server 3 Address: ""
+*c xConfiguration Registration RestrictionPolicy Service Path: ""
+*c xConfiguration Registration RestrictionPolicy Service Status Path: "status"
+*c xConfiguration Registration RestrictionPolicy Service UserName: ""
+*c xConfiguration Registration RestrictionPolicy Service Password: "{cipher}tknHpcGxNO5j7ELuaV+Dwg=="
+*c xConfiguration Registration RestrictionPolicy Service DefaultCPL: "<reject status='504' reason='Registration Policy Unavailable'/>"
+*c xConfiguration Alternates ConfigurationMaster: 1
+*c xConfiguration Alternates Cluster Name: ""
+*c xConfiguration Alternates Peer 1 Address: ""
+*c xConfiguration Alternates Peer 2 Address: ""
+*c xConfiguration Alternates Peer 3 Address: ""
+*c xConfiguration Alternates Peer 4 Address: ""
+*c xConfiguration Alternates Peer 5 Address: ""
+*c xConfiguration Alternates Peer 6 Address: ""
+*c xConfiguration Transform 1 Description: "Fjerne @vcs.lab24.local"
+*c xConfiguration Transform 1 State: Disabled
+*c xConfiguration Transform 1 Priority: 4
+*c xConfiguration Transform 1 Pattern String: "@vcs.lab24.local"
+*c xConfiguration Transform 1 Pattern Type: Suffix
+*c xConfiguration Transform 1 Pattern Behavior: Strip
+*c xConfiguration Transform 1 Pattern Replace: ""
+*c xConfiguration Transform 2 Description: "fjerne @10.19.17.160"
+*c xConfiguration Transform 2 State: Disabled
+*c xConfiguration Transform 2 Priority: 3
+*c xConfiguration Transform 2 Pattern String: "@10.19.17.160"
+*c xConfiguration Transform 2 Pattern Type: Suffix
+*c xConfiguration Transform 2 Pattern Behavior: Strip
+*c xConfiguration Transform 2 Pattern Replace: ""
+*c xConfiguration Transform 3 Description: "test@10.19.17.160"
+*c xConfiguration Transform 3 State: Disabled
+*c xConfiguration Transform 3 Priority: 2
+*c xConfiguration Transform 3 Pattern String: "@10.19.17.160"
+*c xConfiguration Transform 3 Pattern Type: Suffix
+*c xConfiguration Transform 3 Pattern Behavior: Replace
+*c xConfiguration Transform 3 Pattern Replace: "@vcs.lab24.no"
+*c xConfiguration Transform 4 Description: ""
+*c xConfiguration Transform 4 State: Enabled
+*c xConfiguration Transform 4 Priority: 1
+*c xConfiguration Transform 4 Pattern String: "(.*)@10.19.17.160(.*)"
+*c xConfiguration Transform 4 Pattern Type: Regex
+*c xConfiguration Transform 4 Pattern Behavior: Replace
+*c xConfiguration Transform 4 Pattern Replace: "\1@vcs.lab24.no\2"
+*c xConfiguration Call Loop Detection Mode: On
+*c xConfiguration Call Routed Mode: Always
+*c xConfiguration Call Services CallsToUnknownIPAddresses: Indirect
+*c xConfiguration Call Services Fallback Alias: ""
+*c xConfiguration H323 Mode: On
+*c xConfiguration H323 Gatekeeper Registration UDP Port: 1719
+*c xConfiguration H323 Gatekeeper Registration ConflictMode: Reject
+*c xConfiguration H323 Gatekeeper CallSignaling TCP Port: 1720
+*c xConfiguration H323 Gatekeeper CallSignaling PortRange Start: 15000
+*c xConfiguration H323 Gatekeeper CallSignaling PortRange End: 19999
+*c xConfiguration H323 Gatekeeper TimeToLive: 1800
+*c xConfiguration H323 Gatekeeper CallTimeToLive: 120
+*c xConfiguration H323 Gatekeeper AutoDiscovery Mode: On
+*c xConfiguration H323 Gateway CallerId: ExcludePrefix
+*c xConfiguration SIP Mode: On
+*c xConfiguration SIP Domains Domain 1 Name: "vcs.lab24.no"
+*c xConfiguration SIP Routes Route 1 Method: "SUBSCRIBE"
+*c xConfiguration SIP Routes Route 1 Request Line Pattern: ".*@(%localdomains%|%ip%)"
+*c xConfiguration SIP Routes Route 1 Header Name: "Event"
+*c xConfiguration SIP Routes Route 1 Header Pattern: "(ua-profile|phonebook).*"
+*c xConfiguration SIP Routes Route 1 Authenticated: Off
+*c xConfiguration SIP Routes Route 1 Address: "127.0.0.1"
+*c xConfiguration SIP Routes Route 1 Port: 22400
+*c xConfiguration SIP Routes Route 1 Transport: TCP
+*c xConfiguration SIP Routes Route 1 Tag: "Provisioning"
+*c xConfiguration SIP Routes Route 2 Method: "INFO"
+*c xConfiguration SIP Routes Route 2 Request Line Pattern: ".*@(%localdomains%|%ip%)"
+*c xConfiguration SIP Routes Route 2 Header Name: "Content-Type"
+*c xConfiguration SIP Routes Route 2 Header Pattern: "application/tandberg-phonebook\+xml"
+*c xConfiguration SIP Routes Route 2 Authenticated: Off
+*c xConfiguration SIP Routes Route 2 Address: "127.0.0.1"
+*c xConfiguration SIP Routes Route 2 Port: 22400
+*c xConfiguration SIP Routes Route 2 Transport: TCP
+*c xConfiguration SIP Routes Route 2 Tag: "Phonebook"
+*c xConfiguration SIP Registration Standard Refresh Strategy: Maximum
+*c xConfiguration SIP Registration Standard Refresh Minimum: 45
+*c xConfiguration SIP Registration Standard Refresh Maximum: 60
+*c xConfiguration SIP Registration Outbound Refresh Strategy: Variable
+*c xConfiguration SIP Registration Outbound Refresh Minimum: 300
+*c xConfiguration SIP Registration Outbound Refresh Maximum: 3600
+*c xConfiguration SIP Registration Outbound Flow Timer: 0
+*c xConfiguration SIP Registration Proxy Mode: Off
+*c xConfiguration SIP Registration Call Remove: No
+*c xConfiguration SIP Session Refresh Value: 1800
+*c xConfiguration SIP Session Refresh Minimum: 500
+*c xConfiguration SIP UDP Mode: On
+*c xConfiguration SIP UDP Port: 5060
+*c xConfiguration SIP TCP Mode: On
+*c xConfiguration SIP TCP Port: 5060
+*c xConfiguration SIP TCP Outbound Port Start: 25000
+*c xConfiguration SIP TCP Outbound Port End: 29999
+*c xConfiguration SIP TLS Mode: Off
+*c xConfiguration SIP TLS Port: 5061
+*c xConfiguration SIP Require UDP BFCP Mode: On
+*c xConfiguration SIP Require Duo Video Mode: On
+*c xConfiguration SIP Authentication Retry Limit: 3
+*c xConfiguration SIP Authentication NTLM Mode: Auto
+*c xConfiguration SIP Authentication NTLM SA Lifetime: 28800
+*c xConfiguration SIP Authentication NTLM SA Limit: 10000
+*c xConfiguration SIP Authentication Digest Nonce ExpireDelta: 300
+*c xConfiguration SIP Authentication Digest Nonce Maximum Use Count: 128
+*c xConfiguration SIP Authentication Digest Nonce Limit: 10000
+*c xConfiguration SIP Authentication Digest Nonce Length: 60
+*c xConfiguration SIP GRUU Mode: On
+*c xConfiguration SIP MediaRouting ICE Mode: Off
+*c xConfiguration Interworking Mode: On
+*c xConfiguration Interworking Encryption Mode: Auto
+*c xConfiguration Interworking Encryption Replay Protection Mode: Off
+*c xConfiguration Interworking BFCP Compatibility Mode: Auto
+*c xConfiguration Interworking Require Invite Header Mode: On
+*c xConfiguration Traversal Media Port Start: 50000
+*c xConfiguration Traversal Media Port End: 52399
+*c xConfiguration Authentication UserName: ""
+*c xConfiguration Authentication Password: "{cipher}CU+8uT+b+YAxMrB9VJpo4w=="
+*c xConfiguration Authentication Database: LocalDatabase
+*c xConfiguration Authentication LDAP BaseDN: ""
+*c xConfiguration Authentication LDAP AliasOrigin: LDAP
+*c xConfiguration Authentication ADS ADDomain: ""
+*c xConfiguration Authentication ADS Workgroup: ""
+*c xConfiguration Authentication ADS SPNEGO: Enabled
+*c xConfiguration Authentication ADS SecureChannel: Auto
+*c xConfiguration Authentication ADS Encryption: TLS
+*c xConfiguration Authentication ADS Mode: Off
+*c xConfiguration Authentication ADS Clockskew: 300
+*c xConfiguration Zones Policy Mode: SearchRules
+*c xConfiguration Zones Policy SearchRules Rule 1 Name: "LocalZoneMatch"
+*c xConfiguration Zones Policy SearchRules Rule 1 Description: "Default rule: queries the Local Zone for any alias"
+*c xConfiguration Zones Policy SearchRules Rule 1 Priority: 50
+*c xConfiguration Zones Policy SearchRules Rule 1 Source: Any
+*c xConfiguration Zones Policy SearchRules Rule 1 Authentication: No
+*c xConfiguration Zones Policy SearchRules Rule 1 Mode: AnyAlias
+*c xConfiguration Zones Policy SearchRules Rule 1 Progress: Continue
+*c xConfiguration Zones Policy SearchRules Rule 1 Target Type: Zone
+*c xConfiguration Zones Policy SearchRules Rule 1 Target Name: "LocalZone"
+*c xConfiguration Zones Policy SearchRules Rule 1 State: Enabled
+*c xConfiguration Zones Policy SearchRules Rule 2 Name: "Sametime Database"
+*c xConfiguration Zones Policy SearchRules Rule 2 Description: ""
+*c xConfiguration Zones Policy SearchRules Rule 2 Priority: 100
+*c xConfiguration Zones Policy SearchRules Rule 2 Source: Any
+*c xConfiguration Zones Policy SearchRules Rule 2 Authentication: No
+*c xConfiguration Zones Policy SearchRules Rule 2 Mode: AliasPatternMatch
+*c xConfiguration Zones Policy SearchRules Rule 2 Pattern Type: Suffix
+*c xConfiguration Zones Policy SearchRules Rule 2 Pattern String: "@sametime.lab24.local"
+*c xConfiguration Zones Policy SearchRules Rule 2 Pattern Behavior: Leave
+*c xConfiguration Zones Policy SearchRules Rule 2 Pattern Replace: ""
+*c xConfiguration Zones Policy SearchRules Rule 2 Progress: Continue
+*c xConfiguration Zones Policy SearchRules Rule 2 Target Type: Zone
+*c xConfiguration Zones Policy SearchRules Rule 2 Target Name: "Sametime Neighbor"
+*c xConfiguration Zones Policy SearchRules Rule 2 State: Enabled
+*c xConfiguration Zones DefaultZone Authentication Mode: DoNotCheckCredentials
+*c xConfiguration Zones LocalZone DefaultSubZone Authentication Mode: DoNotCheckCredentials
+*c xConfiguration Zones LocalZone DefaultSubZone Registrations: Allow
+*c xConfiguration Zones LocalZone DefaultSubZone Bandwidth Total Mode: Unlimited
+*c xConfiguration Zones LocalZone DefaultSubZone Bandwidth PerCall Inter Mode: Unlimited
+*c xConfiguration Zones LocalZone DefaultSubZone Bandwidth PerCall Intra Mode: Unlimited
+*c xConfiguration Zones LocalZone TraversalSubZone Bandwidth Total Mode: Unlimited
+*c xConfiguration Zones LocalZone TraversalSubZone Bandwidth PerCall Mode: Unlimited
+*c xConfiguration Zones Zone 1 Name: "Sametime Neighbor"
+*c xConfiguration Zones Zone 1 HopCount: 15
+*c xConfiguration Zones Zone 1 H323 Mode: Off
+*c xConfiguration Zones Zone 1 SIP Mode: On
+*c xConfiguration Zones Zone 1 Type: Neighbor
+*c xConfiguration Zones Zone 1 Neighbor Authentication Mode: TreatAsAuthenticated
+*c xConfiguration Zones Zone 1 Neighbor Registrations: Allow
+*c xConfiguration Zones Zone 1 Neighbor Monitor: Yes
+*c xConfiguration Zones Zone 1 Neighbor SignalingRouting Mode: Always
+*c xConfiguration Zones Zone 1 Neighbor H323 Port: 1719
+*c xConfiguration Zones Zone 1 Neighbor H323 CallSignaling Port: 1720
+*c xConfiguration Zones Zone 1 Neighbor H323 SearchAutoResponse: Off
+*c xConfiguration Zones Zone 1 Neighbor AdvancedMediaGateway Mode: Off
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP EmptyInviteAllowed: On
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Encryption EncryptSRTCP: No
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Audio DefaultCodec: G711u
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultCodec: H263
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultBitrate: 384
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultResolution: CIF
+*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Search Strategy: Options
+*c xConfiguration Zones Zone 1 Neighbor SIP Port: 5080
+*c xConfiguration Zones Zone 1 Neighbor SIP MediaRouting Mode: Auto
+*c xConfiguration Zones Zone 1 Neighbor SIP Transport: UDP
+*c xConfiguration Zones Zone 1 Neighbor SIP TLS Verify Mode: Off
+*c xConfiguration Zones Zone 1 Neighbor SIP Authentication Trust Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP ClassFiveResponseLiveness: Yes
+*c xConfiguration Zones Zone 1 Neighbor SIP SearchAutoResponse: On
+*c xConfiguration Zones Zone 1 Neighbor SIP Encryption Mode: Auto
+*c xConfiguration Zones Zone 1 Neighbor SIP Poison Mode: Off
+*c xConfiguration Zones Zone 1 Neighbor SIP UDP BFCP Filter Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP Duo Video Filter Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP SDP Attribute Line Limit Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP SDP Attribute Line Limit Length: 130
+*c xConfiguration Zones Zone 1 Neighbor SIP MIME Strip Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP UPDATE Strip Mode: On
+*c xConfiguration Zones Zone 1 Neighbor SIP ProxyRequire Strip List: ""
+*c xConfiguration Zones Zone 1 Neighbor SIP Record Route Address Type: IP
+*c xConfiguration Zones Zone 1 Neighbor Peer 1 Address: "10.19.16.92"
+*c xConfiguration Zones Zone 1 Neighbor Peer 2 Address: ""
+*c xConfiguration Zones Zone 1 Neighbor Peer 3 Address: ""
+*c xConfiguration Zones Zone 1 Neighbor Peer 4 Address: ""
+*c xConfiguration Zones Zone 1 Neighbor Peer 5 Address: ""
+*c xConfiguration Zones Zone 1 Neighbor Peer 6 Address: ""
+*c xConfiguration Zones Zone 1 Neighbor ZoneProfile: Custom
+*c xConfiguration Bandwidth Default: 384
+*c xConfiguration Bandwidth Downspeed PerCall Mode: On
+*c xConfiguration Bandwidth Downspeed Total Mode: On
+*c xConfiguration Bandwidth Pipe 1 Name: "512"
+*c xConfiguration Bandwidth Pipe 1 Bandwidth Total Mode: Unlimited
+*c xConfiguration Bandwidth Pipe 1 Bandwidth PerCall Mode: Limited
+*c xConfiguration Bandwidth Pipe 1 Bandwidth PerCall Limit: 512
+*c xConfiguration Bandwidth Link 1 Name: "Zone001ToDefaultSZ"
+*c xConfiguration Bandwidth Link 1 Node1 Name: "Sametime Neighbor"
+*c xConfiguration Bandwidth Link 1 Node2 Name: "DefaultSubZone"
+*c xConfiguration Bandwidth Link 1 Pipe1 Name: "512"
+*c xConfiguration Bandwidth Link 1 Pipe2 Name: ""
+*c xConfiguration Bandwidth Link 2 Name: "Zone001ToTraversalSZ"
+*c xConfiguration Bandwidth Link 2 Node1 Name: "Sametime Neighbor"
+*c xConfiguration Bandwidth Link 2 Node2 Name: "TraversalSubZone"
+*c xConfiguration Bandwidth Link 2 Pipe1 Name: "512"
+*c xConfiguration Bandwidth Link 2 Pipe2 Name: ""
+*c xConfiguration Bandwidth Link 3 Name: "DefaultSZtoTraversalSZ"
+*c xConfiguration Bandwidth Link 3 Node1 Name: "DefaultSubZone"
+*c xConfiguration Bandwidth Link 3 Node2 Name: "TraversalSubZone"
+*c xConfiguration Bandwidth Link 3 Pipe1 Name: ""
+*c xConfiguration Bandwidth Link 3 Pipe2 Name: ""
+*c xConfiguration Bandwidth Link 4 Name: "DefaultSZtoDefaultZ"
+*c xConfiguration Bandwidth Link 4 Node1 Name: "DefaultSubZone"
+*c xConfiguration Bandwidth Link 4 Node2 Name: "DefaultZone"
+*c xConfiguration Bandwidth Link 4 Pipe1 Name: ""
+*c xConfiguration Bandwidth Link 4 Pipe2 Name: ""
+*c xConfiguration Bandwidth Link 5 Name: "DefaultSZtoClusterSZ"
+*c xConfiguration Bandwidth Link 5 Node1 Name: "DefaultSubZone"
+*c xConfiguration Bandwidth Link 5 Node2 Name: "ClusterSubZone"
+*c xConfiguration Bandwidth Link 5 Pipe1 Name: ""
+*c xConfiguration Bandwidth Link 5 Pipe2 Name: ""
+*c xConfiguration Bandwidth Link 6 Name: "TraversalSZtoDefaultZ"
+*c xConfiguration Bandwidth Link 6 Node1 Name: "TraversalSubZone"
+*c xConfiguration Bandwidth Link 6 Node2 Name: "DefaultZone"
+*c xConfiguration Bandwidth Link 6 Pipe1 Name: ""
+*c xConfiguration Bandwidth Link 6 Pipe2 Name: ""
+*c xConfiguration Policy AdministratorPolicy Mode: Off
+*c xConfiguration Policy AdministratorPolicy Service Protocol: HTTP
+*c xConfiguration Policy AdministratorPolicy Service TLS Verify Mode: On
+*c xConfiguration Policy AdministratorPolicy Service TLS CRLCheck Mode: Off
+*c xConfiguration Policy AdministratorPolicy Service Server 1 Address: ""
+*c xConfiguration Policy AdministratorPolicy Service Server 2 Address: ""
+*c xConfiguration Policy AdministratorPolicy Service Server 3 Address: ""
+*c xConfiguration Policy AdministratorPolicy Service Path: ""
+*c xConfiguration Policy AdministratorPolicy Service Status Path: "status"
+*c xConfiguration Policy AdministratorPolicy Service UserName: ""
+*c xConfiguration Policy AdministratorPolicy Service Password: "{cipher}hl/I3+4JZiTUdwNUFlB4Mg=="
+*c xConfiguration Policy AdministratorPolicy Service DefaultCPL: "<reject status='504' reason='Admin Policy Unavailable'/>"
+*c xConfiguration Policy FindMe Mode: Off
+*c xConfiguration Policy FindMe CallerId: IncomingID
+*c xConfiguration Policy FindMe UserDeviceRestriction: Off
+*c xConfiguration Applications ConferenceFactory Mode: Off
+*c xConfiguration Applications ConferenceFactory Alias: ""
+*c xConfiguration Applications ConferenceFactory Template: ""
+*c xConfiguration Applications ConferenceFactory Range Start: 1
+*c xConfiguration Applications ConferenceFactory Range End: 65535
+*c xConfiguration Applications OCS Relay Mode: Off
+*c xConfiguration Applications OCS Relay OCS Domain: ""
+*c xConfiguration Applications OCS Relay OCS Routing Prefix: "ocs"
+*c xConfiguration Applications Presence Server Mode: Off
+*c xConfiguration Applications Presence Server Publication ExpireDelta: 1800
+*c xConfiguration Applications Presence Server Subscription ExpireDelta: 3600
+*c xConfiguration Applications Presence User Agent Mode: Off
+*c xConfiguration Applications Presence User Agent ExpireDelta: 3600
+*c xConfiguration Applications Presence User Agent RetryDelta: 1800
+*c xConfiguration Applications Presence User Agent Presentity Idle Status: Online
+*c xConfiguration ResourceUsage Warning Activation Level: 90
+*c xConfiguration Core Dump Mode: Off
+*c xConfiguration Certification AdvancedAccountSecurity Mode: Off
+*c xConfiguration Services AdvancedMediaGateway Zone Name: ""
+*c xConfiguration Services AdvancedMediaGateway Policy Mode: Off
+

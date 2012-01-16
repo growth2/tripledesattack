@@ -1,0 +1,942 @@
+
+OK
+xstat
+
+*s SystemUnit:
+     Product: "TANDBERG VCS"
+     Uptime: 1842857
+     SystemTime: "2012-01-16 08:04:52"
+     TimeZone: "Europe/Oslo"
+     LocalTime: "2012-01-16 09:04:52"
+     Software:
+       Version: "X7.0.2"
+       Build: "269777"
+       Name: "s42700"
+       ReleaseDate: "2011-10-21"
+       ReleaseKey: "0741667087884175"
+       Packages:
+         NumberOfPackages: 41
+         Package 1:
+           PackageName: "tandberg_linux_base"
+           PackageVersion: "3.0-269222"
+           PackageType: "core"
+           PackageDescription: "Tandberg Linux Base"
+         Package 2:
+           PackageName: "boost"
+           PackageVersion: "1.43.0-221158"
+           PackageType: "core"
+           PackageDescription: "boost"
+         Package 3:
+           PackageName: "openssl"
+           PackageVersion: "1.0.0d-255977"
+           PackageType: "core"
+           PackageDescription: "openssl"
+         Package 4:
+           PackageName: "termcap"
+           PackageVersion: "1.3.1-232000"
+           PackageType: "core"
+           PackageDescription: "termcap"
+         Package 5:
+           PackageName: "ncurses"
+           PackageVersion: "5.7-240620"
+           PackageType: "core"
+           PackageDescription: "ncurses"
+         Package 6:
+           PackageName: "readline"
+           PackageVersion: "6.1-236604"
+           PackageType: "core"
+           PackageDescription: "readline"
+         Package 7:
+           PackageName: "log4cxx"
+           PackageVersion: "0.10.0-220762"
+           PackageType: "core"
+           PackageDescription: "log4cxx"
+         Package 8:
+           PackageName: "apache2"
+           PackageVersion: "2.2.21-267447"
+           PackageType: "core"
+           PackageDescription: "apache2"
+         Package 9:
+           PackageName: "c-ares"
+           PackageVersion: "1.7.4-251616"
+           PackageType: "core"
+           PackageDescription: "c-ares"
+         Package 10:
+           PackageName: "curl"
+           PackageVersion: "7.21.4-262002"
+           PackageType: "core"
+           PackageDescription: "curl"
+         Package 11:
+           PackageName: "zlib"
+           PackageVersion: "1.2.5-236604"
+           PackageType: "core"
+           PackageDescription: "zlib"
+         Package 12:
+           PackageName: "bzip2"
+           PackageVersion: "1.0.6-240668"
+           PackageType: "core"
+           PackageDescription: "bzip2"
+         Package 13:
+           PackageName: "uuid"
+           PackageVersion: "1.6.2-220762"
+           PackageType: "core"
+           PackageDescription: "uuid"
+         Package 14:
+           PackageName: "expat"
+           PackageVersion: "2.0.1-245042"
+           PackageType: "core"
+           PackageDescription: "expat"
+         Package 15:
+           PackageName: "glibc"
+           PackageVersion: "2.11.1-240605"
+           PackageType: "core"
+           PackageDescription: "glibc"
+         Package 16:
+           PackageName: "otp"
+           PackageVersion: "14B01-255476"
+           PackageType: "core"
+           PackageDescription: "otp"
+         Package 17:
+           PackageName: "log4erl"
+           PackageVersion: "0.9.0-255905"
+           PackageType: "core"
+           PackageDescription: "log4erl"
+         Package 18:
+           PackageName: "mochiweb"
+           PackageVersion: "142-236604"
+           PackageType: "core"
+           PackageDescription: "mochiweb"
+         Package 19:
+           PackageName: "meck"
+           PackageVersion: "eproxus.-245395"
+           PackageType: "core"
+           PackageDescription: "meck"
+         Package 20:
+           PackageName: "python"
+           PackageVersion: "2.7.1-260593"
+           PackageType: "core"
+           PackageDescription: "python"
+         Package 21:
+           PackageName: "ipaddr"
+           PackageVersion: "2.1.2-245042"
+           PackageType: "core"
+           PackageDescription: "ipaddr"
+         Package 22:
+           PackageName: "lxml"
+           PackageVersion: "2.2.6-245042"
+           PackageType: "core"
+           PackageDescription: "lxml"
+         Package 23:
+           PackageName: "pyinotify"
+           PackageVersion: "0.9.0-245042"
+           PackageType: "core"
+           PackageDescription: "pyinotify"
+         Package 24:
+           PackageName: "pytz"
+           PackageVersion: "2010o-245042"
+           PackageType: "core"
+           PackageDescription: "pytz"
+         Package 25:
+           PackageName: "soaplib"
+           PackageVersion: "0.8.1-245042"
+           PackageType: "core"
+           PackageDescription: "soaplib"
+         Package 26:
+           PackageName: "suds"
+           PackageVersion: "0.4-245254"
+           PackageType: "core"
+           PackageDescription: "suds"
+         Package 27:
+           PackageName: "python-ldap"
+           PackageVersion: "2.3.11-245042"
+           PackageType: "core"
+           PackageDescription: "python-ldap"
+         Package 28:
+           PackageName: "zope-interface"
+           PackageVersion: "3.6.1-245042"
+           PackageType: "core"
+           PackageDescription: "zope-interface"
+         Package 29:
+           PackageName: "twisted"
+           PackageVersion: "10.2.0-245395"
+           PackageType: "core"
+           PackageDescription: "twisted"
+         Package 30:
+           PackageName: "httplib2"
+           PackageVersion: "0.6.0-236823"
+           PackageType: "core"
+           PackageDescription: "httplib2"
+         Package 31:
+           PackageName: "coverage"
+           PackageVersion: "3.4-245042"
+           PackageType: "core"
+           PackageDescription: "coverage"
+         Package 32:
+           PackageName: "pyparsing"
+           PackageVersion: "pyparsing.1.5.5.zip-245316"
+           PackageType: "core"
+           PackageDescription: "pyparsing"
+         Package 33:
+           PackageName: "pyopenssl"
+           PackageVersion: "0.10-245395"
+           PackageType: "core"
+           PackageDescription: "pyopenssl"
+         Package 34:
+           PackageName: "pycrypto"
+           PackageVersion: "2.2-245042"
+           PackageType: "core"
+           PackageDescription: "pycrypto"
+         Package 35:
+           PackageName: "pygobject"
+           PackageVersion: "2.28.4-254259"
+           PackageType: "core"
+           PackageDescription: "pygobject"
+         Package 36:
+           PackageName: "libxml2"
+           PackageVersion: "2.7.8-253542"
+           PackageType: "core"
+           PackageDescription: "libxml2"
+         Package 37:
+           PackageName: "b2bua-presence-relay"
+           PackageVersion: "1.0-269777"
+           PackageType: "component"
+           PackageDescription: "B2BUA Presence Relay"
+         Package 38:
+           PackageName: "b2bua"
+           PackageVersion: "1.0-269777"
+           PackageType: "component"
+           PackageDescription: "B2BUA Service"
+         Package 39:
+           PackageName: "ocs-relay"
+           PackageVersion: "2.1-654"
+           PackageType: "component"
+           PackageDescription: "OCS Relay"
+         Package 40:
+           PackageName: "opends"
+           PackageVersion: "2.0.2-1"
+           PackageType: "component"
+           PackageDescription: "VCS Database"
+         Package 41:
+           PackageName: "provisioning"
+           PackageVersion: "3.3-1"
+           PackageType: "component"
+           PackageDescription: "Device Provisioning"
+       Configuration:
+         NonTraversalCalls: 10
+         TraversalCalls: 100
+         Registrations: 2500
+         Expressway: False
+         Encryption: True
+         Interworking: True
+         FindMe: False
+         DeviceProvisioning: True
+         DualNetworkInterfaces: False
+         AdvancedAccountSecurity: True
+         StarterPack: False
+         EnhancedOCSCollaboration: False
+     Hardware:
+       Version: "1.0"
+       SerialNumber: "52A19626"
+*s/end
+
+*s Ethernet 1:
+     MacAddress: "00:10:F3:20:F7:5A"
+     Speed: 1000full
+     IPv4:
+       Address: "10.19.17.160"
+       SubnetMask: "255.255.255.128"
+*s/end
+
+*s Ethernet 2:
+     MacAddress: "00:10:F3:20:F7:5B"
+     Speed: Down
+     IPv4:
+       Address: "192.168.0.100"
+       SubnetMask: "255.255.255.0"
+*s/end
+
+*s Options:
+     Option 1:
+       Key: "116341X10-1-EB3B3A96"
+       Description: "10 Non-traversal Calls"
+     Option 2:
+       Key: "116341P00-1-CCFD4C0D"
+       Description: "Device Provisioning"
+     Option 3:
+       Key: "116341G00-1-4FC6016C"
+       Description: "H323-SIP Interworking Gateway"
+     Option 4:
+       Key: "116341J00-1-2274803A"
+       Description: "Advanced Account Security"
+     Option 5:
+       Key: "116341Y100-1-328121F5"
+       Description: "100 Traversal Calls"
+*s/end
+
+*s IP:
+     Protocol: IPv4
+     IPv4:
+       Gateway: "10.19.17.129"
+     DNS:
+       Server 1:
+         Address: ""
+       Server 2:
+         Address: ""
+       Server 3:
+         Address: ""
+       Server 4:
+         Address: ""
+       Server 5:
+         Address: ""
+       Domain:
+         Name: ""
+*s/end
+
+*s LDAP:
+     Status: Inactive
+*s/end
+
+*s ExternalManager:
+     Status: Failed
+     Cause: Failed to connect to external manager
+     Address: "10.19.17.161"
+     Protocol: HTTP
+     URL: "tms/public/external/management/systemmanagementservice.asmx"
+*s/end
+
+*s Feedback 1:
+     Status: Off
+*s/end
+
+*s Feedback 2:
+     Status: Off
+*s/end
+
+*s Feedback 3:
+     Status: Off
+*s/end
+
+*s ResourceUsage:
+     Calls:
+       Traversal:
+         Current: 0
+         Max: 0
+         Total: 0
+       NonTraversal:
+         Current: 0
+         Max: 0
+         Total: 0
+     Registrations:
+       Current: 1
+       Max: 3
+       Total: 7
+*s/end
+
+*s Calls: /
+*s/end
+
+*s Zones:
+     DefaultZone:
+       Name: "DefaultZone"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     LocalZone:
+       DefaultSubZone:
+         Name: "DefaultSubZone"
+         Bandwidth:
+           LocalUsage: 0
+           ClusterUsage: 0
+         Registrations:
+           Registration 3:
+             SerialNumber: "67c98d12-3c29-11e1-b55f-0010f320f75a"
+       TraversalSubZone:
+         Name: "TraversalSubZone"
+         Bandwidth:
+           LocalUsage: 0
+           ClusterUsage: 0
+       ClusterSubZone:
+         Name: "ClusterSubZone"
+         Bandwidth:
+           LocalUsage: 0
+           ClusterUsage: 0
+     Searches:
+       Current: 0
+       Total: 0
+       Dropped: 0
+       MaxSubSearchExceeded: 0
+       MaxTargetsExceeded: 0
+     Zone 1:
+       Name: "Sametime Neighbor"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+       Status: Active
+       Type: Neighbor
+       Neighbor:
+         Peer 1:
+           SIP:
+             Status: Active
+             Address: "10.19.16.92"
+             Port: 5080
+             LastStatusChange: "2012-01-09 10:45:14"
+             Server: ""
+*s/end
+
+*s Alternates: /
+*s/end
+
+*s Links:
+     Link 1:
+       Name: "Zone001ToDefaultSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 2:
+       Name: "Zone001ToTraversalSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 3:
+       Name: "DefaultSZtoTraversalSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 4:
+       Name: "DefaultSZtoDefaultZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 5:
+       Name: "DefaultSZtoClusterSZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+     Link 6:
+       Name: "TraversalSZtoDefaultZ"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+*s/end
+
+*s Pipes:
+     Pipe 1:
+       Name: "512"
+       Bandwidth:
+         LocalUsage: 0
+         ClusterUsage: 0
+*s/end
+
+*s Registrations:
+     Registration 3:
+       Protocol: H323
+       Node: "DefaultSubZone"
+       SerialNumber: "67c98d12-3c29-11e1-b55f-0010f320f75a"
+       Authenticated: False
+       CreationTime: "2012-01-11 08:53:53"
+       Duration: 432659
+       VendorInfo: "TANDBERG"
+       H323:
+         Type: Endpoint
+         CallSignalAddresses:
+           Address: "10.19.16.201:1720"
+         RASAddresses:
+           Address: "10.19.16.201:1719"
+           Apparent: "10.19.16.201:1719"
+         Aliases:
+           Alias 1:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "test@vcs.lab24.no"
+           Alias 2:
+             Type: E164
+             Origin: Endpoint
+             Value: "12345"
+         OutOfResources: False
+*s/end
+
+*s SIP:
+     Ethernet 1:
+       IPv4:
+         UDP:
+           Status: Active
+           Address: "10.19.17.160:5060"
+         TCP:
+           Status: Active
+           Address: "10.19.17.160:5060"
+         TLS:
+           Status: Inactive
+       IPv6:
+         UDP:
+           Status: Inactive
+         TCP:
+           Status: Inactive
+         TLS:
+           Status: Inactive
+     Ethernet 2:
+       IPv4:
+         UDP:
+           Status: Inactive
+         TCP:
+           Status: Inactive
+         TLS:
+           Status: Inactive
+       IPv6:
+         UDP:
+           Status: Inactive
+         TCP:
+           Status: Inactive
+         TLS:
+           Status: Inactive
+     Transport:
+       Server 19657:
+         Socket:
+           Type: "SERV_UDP"
+           State: "INUSE"
+           ID:
+             Local: 85193
+             Global: 0
+           Buffer:
+             Input:
+               Length: 20000
+             Output:
+               Length: 20000
+         Local:
+           Address: "127.0.0.1:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19656:
+         Socket:
+           Type: "SERV_TCP"
+           State: "INUSE"
+           ID:
+             Local: 150728
+             Global: 1
+           Buffer:
+             Input:
+               Length: 0
+             Output:
+               Length: 0
+         Local:
+           Address: "127.0.0.1:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19655:
+         Socket:
+           Type: "SERV_TLS"
+           State: "INUSE"
+           ID:
+             Local: 216263
+             Global: 2
+           Buffer:
+             Input:
+               Length: 0
+             Output:
+               Length: 0
+         Local:
+           Address: "127.0.0.1:5061"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: True
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19654:
+         Socket:
+           Type: "SERV_UDP"
+           State: "INUSE"
+           ID:
+             Local: 281798
+             Global: 3
+           Buffer:
+             Input:
+               Length: 20000
+             Output:
+               Length: 20000
+         Local:
+           Address: "[::1]:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19653:
+         Socket:
+           Type: "SERV_TCP"
+           State: "INUSE"
+           ID:
+             Local: 347333
+             Global: 4
+           Buffer:
+             Input:
+               Length: 0
+             Output:
+               Length: 0
+         Local:
+           Address: "[::1]:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19652:
+         Socket:
+           Type: "SERV_TLS"
+           State: "INUSE"
+           ID:
+             Local: 412868
+             Global: 5
+           Buffer:
+             Input:
+               Length: 0
+             Output:
+               Length: 0
+         Local:
+           Address: "[::1]:5061"
+         Remote:
+           Address: ""
+         Network:
+           Number: 1
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: True
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19651:
+         Socket:
+           Type: "SERV_UDP"
+           State: "INUSE"
+           ID:
+             Local: 478403
+             Global: 6
+           Buffer:
+             Input:
+               Length: 20000
+             Output:
+               Length: 20000
+         Local:
+           Address: "10.19.17.160:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 2
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 184284655
+         Close:
+           In: 900
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 1
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+       Server 19650:
+         Socket:
+           Type: "SERV_TCP"
+           State: "INUSE"
+           ID:
+             Local: 543938
+             Global: 7
+           Buffer:
+             Input:
+               Length: 0
+             Output:
+               Length: 0
+         Local:
+           Address: "10.19.17.160:5060"
+         Remote:
+           Address: ""
+         Network:
+           Number: 2
+         Certificate:
+           Subject:
+             Name: ""
+         TLS:
+           Cipher:
+             Name: ""
+         Last:
+           Packet:
+             Received: 0
+         Close:
+           In: 20
+         Secure: False
+         X509:
+           Certificate:
+             Verified: False
+         Queue:
+           Max:
+             Size: 0
+           Add:
+             Failures: 0
+         Flow:
+           Token: ""
+*s/end
+
+*s H323:
+     Registration:
+       Status: Active
+       IPv4:
+         Address: "10.19.17.160:1719"
+     CallSignaling:
+       Status: Active
+       IPv4:
+         Address: "10.19.17.160:1720"
+     Assent:
+       CallSignaling:
+         Status: Inactive
+     H46018:
+       CallSignaling:
+         Status: Inactive
+*s/end
+
+*s Applications:
+     Presence:
+       UserAgent:
+         Status: Inactive
+         Presentity:
+           Count: 0
+       Server:
+         Subscriptions:
+           Count: 0
+           Max: 0
+           Expired: 0
+           Subscribers:
+             Count: 0
+             Max: 0
+         Status: Inactive
+         Presentities:
+           Count: 0
+           Max: 0
+         Publications:
+           Presentities:
+             Count: 0
+             Max: 0
+     ConferenceFactory:
+       Status: Inactive
+       NextAlias: ""
+     External 2:
+       Status:
+         ClusterStatus:
+           ClusterState: "Disabled"
+       LastUpdate:
+         Time: "Time not set"
+         SecondsSinceLastRefresh: "Time not set"
+     External 1:
+       Status:
+         Status:
+           ID 1:
+             DisplayName: "VCore"
+             Value: "+1.25 V  (min =  +0.83 V, max =  +1.39 V)"
+             Group: "Voltage"
+           ID 2:
+             DisplayName: "DDR 1.8V"
+             Value: "+1.78 V  (min =  +1.62 V, max =  +1.98 V)"
+             Group: "Voltage"
+           ID 3:
+             DisplayName: "VCC 3.3V"
+             Value: "+3.31 V  (min =  +3.14 V, max =  +3.47 V)"
+             Group: "Voltage"
+           ID 4:
+             DisplayName: "VCC 5V"
+             Value: "+4.95 V  (min =  +4.76 V, max =  +5.24 V)"
+             Group: "Voltage"
+           ID 5:
+             DisplayName: "+12V"
+             Value: "+12.16 V  (min =  +9.60 V, max = +14.40 V)"
+             Group: "Voltage"
+           ID 6:
+             DisplayName: "VCC 1.5V"
+             Value: "+1.47 V  (min =  +1.42 V, max =  +1.57 V)"
+             Group: "Voltage"
+           ID 7:
+             DisplayName: "VBat"
+             Value: "+3.23 V  (min =  +2.99 V)"
+             Group: "Voltage"
+           ID 8:
+             DisplayName: "Fan 1"
+             Value: "9375 RPM  (min = 7670 RPM, div = 8)"
+             Group: "Fan"
+           ID 9:
+             DisplayName: "Fan 2"
+             Value: "10546 RPM  (min = 7670 RPM, div = 8)"
+             Group: "Fan"
+           ID 10:
+             DisplayName: "Fan 3"
+             Value: "9375 RPM  (min = 7670 RPM, div = 8)"
+             Group: "Fan"
+           ID 11:
+             DisplayName: "Sys Temp1"
+             Value: "+29.0 C  (high = +45.0 C)                  sensor = thermistor"
+             Group: "Temperature"
+           ID 12:
+             DisplayName: "Sys Temp2"
+             Value: "+30.0 C  (high = +45.0 C)                  sensor = thermistor"
+             Group: "Temperature"
+           ID 13:
+             DisplayName: "CPU Temp"
+             Value: "+27.0 C  (high = +50.0 C)                  sensor = thermal diode"
+             Group: "Temperature"
+           ID 14:
+             DisplayName: "Core 0"
+             Value: "+31.0 C  (high = +76.0 C, crit = +100.0 C)"
+             Group: "Temperature"
+           ID 15:
+             DisplayName: "Core 1"
+             Value: "+31.0 C  (high = +76.0 C, crit = +100.0 C)"
+             Group: "Temperature"
+       LastUpdate:
+         Time: "2012-01-16 09:04:41"
+         SecondsSinceLastRefresh: "11"
+*s/end
+
+*s FindMeManager: /
+*s/end
+
+*s TURN:
+     Server:
+       Status: Inactive
+*s/end
+
+*s Policy: /
+*s/end
+
+OK
