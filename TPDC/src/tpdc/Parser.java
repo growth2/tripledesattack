@@ -33,128 +33,164 @@ public class Parser {
 	
 	public String getSipDomain(){
 		searchString = "SIP Domains Domain 1 Name: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getIPaddress(){
 		searchString = "Ethernet 1 IP V4 Address: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getSubnetmask(){
 		searchString = "Ethernet 1 IP V4 SubnetMask: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getGateway(){
 		searchString = "IP Gateway: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getHostname(){
 		searchString = "IP DNS Hostname: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getDomain(){
 		searchString = "DNS Domain Name: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getNTPserver(){
 		searchString = "NTP Address: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getTMSaddress(){
 		searchString = "ExternalManager Address: ";
-		return findValue();
-	}
-	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getRegRestriction(){
 		searchString = "Registration RestrictionPolicy Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getLoopDetection(){
 		searchString = "Call Loop Detection Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getRoutedMode(){
 		searchString = "Call Routed Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getCallToUnknownIP(){
 		searchString = "Call Services CallsToUnknownIPAddresses: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getH323mode(){
 		searchString = "H323 Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getSIPmode(){
 		searchString = "SIP Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
 	public String getInterworkingMode(){
 		searchString = "Interworking Mode: ";
-		return findValue();
+		return findValue(1);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getFindMeMode(){
+		searchString = "FindMe Mode: ";
+		return findValue(1);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getOCSRelayMode(){
+		searchString = "OCS Relay Mode: ";
+		return findValue(1);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getOCSDomain(){
+		searchString = "OCS Relay OCS Domain: ";
+		return findValue(1);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getPresenceServerMode1(){
+		searchString = "Presence Server Mode: ";
+		return findValue(1);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getSoftwareVersion(){
+		searchString = " Version: ";
+		return findValue(2);
 	}
 	
-	public String getHostname(){
-		searchString = "SystemUnit Name: ";
-		return findValue();
+	public String getReleasekey(){
+		searchString = "ReleaseKey: ";
+		return findValue(2);
 	}
 	
-	private String findValue(){
+	public String getExpresswayMode(){
+		searchString = "Expressway: ";
+		return findValue(2);
+	}
+	
+	public String getMaxNonTraversalCalls(){
+		searchString = "NonTraversalCalls: ";
+		return findValue(2);
+	}
+	
+	public String getMaxTraversalCalls(){
+		searchString = "TraversalCalls: ";
+		return findValue(2);
+	}
+
+	public String getMaxRegistrations(){
+		searchString = "Registrations: ";
+		return findValue(2);
+	}
+
+	public String getSerialNumber(){
+		searchString = "SerialNumber: ";
+		return findValue(2);
+	}
+
+	
+
+	
+	private String findValue(int mode){
+		xconfScanner.reset();
+		xstatScanner.reset();
+		Scanner currScanner;
+		if(mode == 1)currScanner = xconfScanner;
+		else currScanner = xstatScanner;
 		String value = "";
-		while (xconfScanner.hasNextLine()){
-			String strLine = xconfScanner.nextLine();
+		while (currScanner.hasNextLine()){
+			String strLine = currScanner.nextLine();
 			if (strLine.indexOf(searchString) != -1){
 				value = strLine.substring(strLine.indexOf(searchString)+searchString.length(),strLine.length());
+				break;
 			}
 		}
-		return validValue(value);
+		return cleanValidValue(value);
 	}
 	
-	private String validValue(String value){
-		if (value != "")return value;
-		else return "N/A";
+	
+	
+	private String cleanValidValue(String value){
+		if (value == "")return "N/A";
+		else {
+			if(value.endsWith("\"") && value.startsWith("\"")){
+				return value.substring(1, value.length()-1);
+			}
+			return value;
+		}
 	}
 	
 	

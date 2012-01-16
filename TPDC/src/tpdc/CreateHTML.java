@@ -20,7 +20,8 @@ public class CreateHTML {
 	}
 	
 	public void buildHTML() throws IOException{
-		String test = "<html><head></head><body><h1>DOC GENERATOR<h2><p>Sip domain is: " + parser.getSipDomain() + "</body></html>";
+		String test = "<html><head></head><body><h1>DOC GENERATOR<h2><p>Sip domain is: " + parser.getSipDomain() + "</p><p>Version is: " +
+						parser.getSoftwareVersion() + "</body></html>";
 		
 		
 		FileWriter fstream = new FileWriter("index.html");
