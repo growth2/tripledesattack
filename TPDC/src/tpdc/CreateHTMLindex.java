@@ -37,7 +37,7 @@ public class CreateHTMLindex {
 							"	<a href=\"#\">" +
 							"		Oversikt" +
 							"	</a>" +
-							"	<a href=\"#\">" +
+							"	<a href=\"topology.html\">" +
 							"		Topologi" +
 							"	</a>" +
 							"	<!-- Other links here...-->" +
