@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 /**
@@ -170,19 +171,13 @@ public class Parser {
 			}		
 		}
 		while((xstatScanner.nextLine().indexOf("*s/end")) == -1){
-			Scanner lineScanner;
 			String key = xstatScanner.nextLine();
-			lineScanner = new Scanner(key);
-			lineScanner.useDelimiter("\"");
-			key = lineScanner.next();
+			String searchString = "       Key: ";
+			key = key.substring(key.indexOf(searchString)+searchString.length(),key.length());
 			String desc = xstatScanner.nextLine();
-			System.out.println(desc);
-			lineScanner = new Scanner(desc);
-			lineScanner = lineScanner.useDelimiter("\"");
-			desc = lineScanner.next();
-			options.put(key, desc);
-			
-			
+			searchString = "       Description: ";
+			desc = desc.substring(desc.indexOf(searchString)+searchString.length(),desc.length());
+			options.put(cleanValidValue(key), cleanValidValue(desc));
 		}
 		return options;
 	}
@@ -218,3 +213,31 @@ public class Parser {
 	
 	
 }
+/*
+
+	public HashMap<String, String> getOptions(){
+		HashMap<String, String> options = new HashMap<String, String>();
+		while (xstatScanner.hasNextLine()){
+			if ((xstatScanner.nextLine().indexOf("Options:")) != -1){
+				break;
+			}		
+		}
+		while((xstatScanner.nextLine().indexOf("*s/end")) == -1){
+			Scanner lineScanner;
+			String key = xstatScanner.nextLine();
+			lineScanner = new Scanner(key);
+			lineScanner.useDelimiter("\"");
+			key = lineScanner.next();
+			String desc = xstatScanner.nextLine();
+			System.out.println(desc);
+			lineScanner = new Scanner(desc);
+			lineScanner = lineScanner.useDelimiter("\"");
+			desc = lineScanner.next();
+			options.put(key, desc);
+			
+			
+		}
+		return options;
+	}
+
+*/
