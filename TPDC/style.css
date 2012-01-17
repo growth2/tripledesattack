@@ -27,8 +27,8 @@ height:166px;
 #int-site{
 text-align:center;
 position:relative;
+height:auto;
 width:800px;
-height:700px;
 border-style:solid;
 border-width:5px;
 background:#FFFFFF;
