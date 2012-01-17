@@ -32,32 +32,29 @@ public class TPDC {
 		CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
 	}
 	
-	private static void initializeDebug(){
+	private static void initializeDebug() throws FileNotFoundException{
 		Scanner in = new Scanner(System.in);
 		System.out.print("Enter # of VCS Controls in topology: ");
 		int numVCSC = Integer.parseInt(in.nextLine());
 		System.out.print("Enter # of VCS Expressways in topology: ");
 		int numVCSE = Integer.parseInt(in.nextLine());
-
-		HashMap<String, String> confVCSC = new HashMap<String, String>();
-		HashMap<String, String> confVCSE = new HashMap<String, String>();
 		
 		for(int i = 0; i<numVCSC; i++){
-			System.out.print("Enter filename for xconf for VCS Control: ");
-			
+			System.out.print("Enter filename for xconf for VCS Control #" + i+1 + " : ");
+			String xConf = in.nextLine();
+			System.out.print("Enter filename for xstat for VCS Control #" + i+1 + " : ");
+			String xStat = in.nextLine();
+			vcsC.add(new VCS(xConf, xStat));
 		}
-
-		System.out.print("Enter filename for xconf for VCS Control: ");
-		String vcscXstat = "xstat.txt";
-		String vcscXconf = "xconf.txt";
 		
-		try {
-			vcsC.add(new VCS(vcscXconf, vcscXstat));
-		} catch (FileNotFoundException e) {
-			System.out.println("FILES NOT FOUND");
-			e.printStackTrace();
-			return;
+		for(int i = 0; i<numVCSE; i++){
+			System.out.print("Enter filename for xconf for VCS Expressway #" + i+1 + " : ");
+			String xConf = in.nextLine();
+			System.out.print("Enter filename for xstat for VCS Expressway #" + i+1 + " : ");
+			String xStat = in.nextLine();
+			vcsE.add(new VCS(xConf, xStat));
 		}
+		
 	}
 	
 	private static void initialize(){
