@@ -5,6 +5,7 @@ package tpdc;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * @author Andreas
@@ -16,6 +17,8 @@ public class TPDC {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException{
+		//initialize();
+		
 		String xconf = args[0];
 		String xstat = args[1];
 		Parser parser = null;
@@ -27,5 +30,14 @@ public class TPDC {
 		}
 		CreateHTML cHTML = new CreateHTML(parser);
 		cHTML.buildHTML();
+	}
+	private static void initialize(){
+		Scanner in = new Scanner(System.in);
+		System.out.print("Enter # of VCSs in topology: ");
+		String numVCS = in.nextLine();
+		System.out.print("Enter filename for xconf for VCS Control: ");
+		String vcscXconf = in.nextLine();
+		
+		
 	}
 }
