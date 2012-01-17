@@ -36,10 +36,10 @@ public class CreateHTMLtopology {
 		
 		"<div id=\"navbar-container\">" +
 		"	<div id=\"navbar\" align=\"center\">" +
-			"	<a href=\"#\">" +
+			"	<a href=\"index.html\">" +
 			"		Oversikt" +
 			"	</a>" +
-			"	<a href=\"#\">" +
+			"	<a href=\"topology.html\">" +
 			"		Topologi" +
 			"	</a>" +
 			"	<!-- Other links here...-->" +

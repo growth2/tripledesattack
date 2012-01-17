@@ -14,9 +14,12 @@ import java.util.ArrayList;
  *
  */
 public class CreateHTMLindex {
-
+	private ArrayList<VCS> vcsC;
+	private ArrayList<VCS> vcsE;
 	
-	public CreateHTMLindex() throws IOException{
+	public CreateHTMLindex(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
+		this.vcsC = vcsC;
+		this.vcsE = vcsE;
 		buildHTML();
 	}
 	
@@ -34,7 +37,7 @@ public class CreateHTMLindex {
 						
 						"<div id=\"navbar-container\">" +
 						"	<div id=\"navbar\" align=\"center\">" +
-							"	<a href=\"#\">" +
+							"	<a href=\"index.html\">" +
 							"		Oversikt" +
 							"	</a>" +
 							"	<a href=\"topology.html\">" +
@@ -48,7 +51,25 @@ public class CreateHTMLindex {
 							"<div id=\"content\"><p>" +
 
 	/*********************************************************************************************/					
-							
+			
+"<p>Sip domain is: " + vcsC.get(0).getSipDomain() + "</p>" +
+"<p>Version is: " + vcsC.get(0).getSoftwareVersion() + "</p>" +
+		"<p align=\"center\"><table id=\"gradient-style\" summary=\"Meeting Results\">" +
+			"<thead>" +
+				"<tr>" +
+					"<th scope=\"col\">Employee</th>" +
+					"<th scope=\"col\">Division</th>" +
+					"<th scope=\"col\">Suggestions</th>" +
+					"<th scope=\"col\">Rating</th>" +
+				"</tr>" +
+			"</thead>" +						
+			"<tbody>" +
+				"<tr><td>Stephen C. Cox</td><td>Marketing</td><td>Make discount offers</td><td>3/10</td></tr>" +
+				"<tr><td>Josephin Tan</td><td>Advertising</td><td>Give bonuses</td><td>5/10</td></tr>" +
+				"<tr><td>Joyce Ming</td><td>Marketing</td><td>New designs</td><td>8/10</td></tr>" +
+				"<tr><td>James A. Pentel</td><td>Marketing</td><td>Better Packaging</td><td>8/10</td></tr>" +
+			"</tbody>" +
+		"</table></p>" +
 
 	/*********************************************************************************************/						
 											
