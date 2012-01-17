@@ -23,12 +23,37 @@ public class CreateHTMLindex {
 	}
 	
 	public void buildHTML() throws IOException{
-		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><h1>DOC GENERATOR</h1>";
+		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
 		
-		System.out.println(vcsC.get(0).getDomain() + " " + vcsC.get(0).getEndpoints().get(1).getIpAddress());
 		
-		String test = "<div id=\"logo\" align=\"center\"><a href=\"http://www.atea.no\"><img src=\"images/atealogo.jpg\" /></a></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
-						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>";
+		
+		String test = "	<div id=\"logo\" align=\"center\">" +
+							"<a href=\"http://www.atea.no\">" +
+								"<img src=\"images/atealogo.jpg\" />" +
+							"</a>" +
+							"<p>Telepresence Network Documentation</p>" +
+						"</div>" +
+						
+						"<div id=\"navbar-container\">" +
+						"	<div id=\"navbar\" align=\"center\">" +
+							"	<a href=\"#\">" +
+							"		Oversikt" +
+							"	</a>" +
+							"	<a href=\"#\">" +
+							"		Topologi" +
+							"	</a>" +
+							"	<!-- Other links here...-->" +
+							"</div>" +
+						"</div>" +
+						
+						"<div id=\"int-site-container\">" +
+							"<div id=\"int-site\">" +
+							"<div id=\"footer\">" +
+							"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
+							"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
+							"</div>" +
+							"</div>" +
+						"</div>";
 	
 		String slutt = "</body></html>";
 		
