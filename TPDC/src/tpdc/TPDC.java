@@ -21,23 +21,35 @@ public class TPDC {
 	private static ArrayList<VCS> vcsC = new ArrayList<VCS>();
 	private static ArrayList<VCS> vcsE = new ArrayList<VCS>();
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args){
 		initializeDebug();
-		
-		CreateHTMLindex cHTML = new CreateHTMLindex(vcsC, vcsE);
-		cHTML.buildHTML();
+		createHTML();
+
+	}
+	
+	private static void createHTML(){
+		CreateHTMLindex cIndex = new CreateHTMLindex();
+		CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
 	}
 	
 	private static void initializeDebug(){
 		Scanner in = new Scanner(System.in);
 		System.out.print("Enter # of VCS Controls in topology: ");
-		String numVCSc = "1";
+		int numVCSC = Integer.parseInt(in.nextLine());
 		System.out.print("Enter # of VCS Expressways in topology: ");
-		String numVCSe = "0";
-		System.out.print("Enter filename for xconf for VCS Control: ");
-		String vcscXconf = "xconf.txt";
+		int numVCSE = Integer.parseInt(in.nextLine());
+
+		HashMap<String, String> confVCSC = new HashMap<String, String>();
+		HashMap<String, String> confVCSE = new HashMap<String, String>();
+		
+		for(int i = 0; i<numVCSC; i++){
+			System.out.print("Enter filename for xconf for VCS Control: ");
+			
+		}
+
 		System.out.print("Enter filename for xconf for VCS Control: ");
 		String vcscXstat = "xstat.txt";
+		String vcscXconf = "xconf.txt";
 		
 		try {
 			vcsC.add(new VCS(vcscXconf, vcscXstat));
