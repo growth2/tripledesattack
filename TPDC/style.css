@@ -4,19 +4,52 @@
 
 
 /* Reset Body Property */
-body{border:0; margin:0; padding:0;	line-height:1.6em;}
-#navbar-container{background:#000000;}
+
+body{
+border:0; margin:0; padding:0;	line-height:1.6em;
+}
+
+#navbar-container{
+background:#000000;
+}
+
+#logo, #navbar{
+text-align:center;
+width:800px;
+margin:0 auto;
+}
+
 #int-site-container{
 background:url(images/bg-nav-image.png) left top repeat-x;
 height:166px;
 }
-#logo, #navbar, #int-site{
+
+#int-site{
+text-align:center;
+position:relative;
 width:800px;
+height:700px;
+border-style:solid;
+border-width:5px;
+background:#FFFFFF;
 margin:0 auto;
 }
+ 
+#footer{
+width:800px;
+position:absolute;
+bottom:0;
+margin:auto auto 0;
+}
+ 
 /*------------------*/
 /* LOGO */
-#logo{height:54px;}
+#logo{
+height:164px;
+margin-top:10px; 
+font:bold 15px Verdana, Arial, Helvetica, sans-serif;
+text-shadow:1;
+}
 
 /*------------------*/
 /* Nav Bar */

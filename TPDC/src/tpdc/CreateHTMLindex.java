@@ -24,7 +24,7 @@ public class CreateHTMLindex {
 		
 		System.out.println(t1.vcsC.getDomain() + " " + t1.vcsC.getEndpoints().get(1).getIpAddress());
 		
-		String test = "<div id=\"logo\"></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
+		String test = "<div id=\"logo\" align=\"center\"><a href=\"http://www.atea.no\"><img src=\"images/atealogo.jpg\" /></a></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
 						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>";
 	
 		String slutt = "</body></html>";
