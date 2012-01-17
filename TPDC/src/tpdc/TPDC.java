@@ -3,10 +3,9 @@
  */
 package tpdc;
 
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -22,18 +21,22 @@ public class TPDC {
 	private static ArrayList<VCS> vcsE = new ArrayList<VCS>();
 	private static boolean debug;
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
 		debug = true;
-		initialize();
-		createHTML();
+		try {
+			initialize();
+		} catch (Exception e) {
+			System.out.println("SOMETHING WENT WRONG. TRY AGAIN.");
+			e.printStackTrace();
+		}
 	}
 	
 	private static void createHTML() throws IOException{
-		CreateHTMLindex cIndex = new CreateHTMLindex();
+		CreateHTMLindex cIndex = new CreateHTMLindex(vcsC, vcsE);
 		CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
 	}
 	
-	private static void initialize() throws FileNotFoundException{
+	private static void initialize() throws IOException{
 		if(debug){
 			vcsC.add(new VCS("xconf.txt", "xstat.txt"));
 		}
@@ -60,5 +63,6 @@ public class TPDC {
 				vcsE.add(new VCS(xConf, xStat));
 			}
 		}
+		createHTML();
 	}
 }
