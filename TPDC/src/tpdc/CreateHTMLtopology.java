@@ -24,7 +24,7 @@ public class CreateHTMLtopology {
 	}
 	
 	public void buildHTML() throws IOException{
-		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><h1>DOC GENERATOR</h1>";
+		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
 		
 		
 		String body = "	<div id=\"logo\" align=\"center\">" +
@@ -46,16 +46,15 @@ public class CreateHTMLtopology {
 			"</div>" +
 		"</div>" +
 		
-		"<div id=\"int-site-container\">" +
-			"<div id=\"int-site\">" +
-		
-/********************************************************************/
-/*********************************CONTENT****************************/		
+		"<div id=\"wrapper\">" +
+			"<div id=\"content\"><p>" +
+
+
+	/*********************************************************************************************/
 			
 "<p>Sip domain is: " + vcsC.get(0).getSipDomain() + "</p>" +
 "<p>Version is: " + vcsC.get(0).getSoftwareVersion() + "</p>" +
-
-		"<table id=\"gradient-style\" summary=\"Meeting Results\">" +
+		"<p align=\"center\"><table id=\"gradient-style\" summary=\"Meeting Results\">" +
 			"<thead>" +
 				"<tr>" +
 					"<th scope=\"col\">Employee</th>" +
@@ -70,16 +69,14 @@ public class CreateHTMLtopology {
 				"<tr><td>Joyce Ming</td><td>Marketing</td><td>New designs</td><td>8/10</td></tr>" +
 				"<tr><td>James A. Pentel</td><td>Marketing</td><td>Better Packaging</td><td>8/10</td></tr>" +
 			"</tbody>" +
-		"</table>" +
+		"</table></p>" +
 			
-/****************************CONTENT***********************************/
-/**********************************************************************/		
-			
-			
-			"<div id=\"footer\">" +
-			"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-			"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
-			"</div>" +
+	/*********************************************************************************************/
+				
+					"</p><div id=\"footer\">" +
+						"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
+						"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
+					"</div>" +
 			"</div>" +
 		"</div>";
 				

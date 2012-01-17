@@ -13,42 +13,18 @@ border:0; margin:0; padding:0;	line-height:1.6em;
 background:#000000;
 }
 
-#logo, #navbar{
+#navbar{
 text-align:center;
 width:800px;
 margin:0 auto;
 }
 
-#int-site-container{
-background:url(images/bg-nav-image.png) left top repeat-x;
-height:166px;
-}
-
-#int-site{
-text-align:center;
-position:relative;
-height:auto;
-width:800px;
-border-style:solid;
-border-width:5px;
-background:#FFFFFF;
-margin:0 auto;
-}
- 
-#footer{
-text-align:center;
-width:800px;
-height:50px;
-position:absolute;
-bottom:0;
-margin:auto auto 0;
-}
- 
-/*------------------*/
 /* LOGO */
 #logo{
+text-align:center;
+width:800px;
 height:164px;
-margin-top:10px; 
+margin:10px auto; 
 font:bold 15px Verdana, Arial, Helvetica, sans-serif;
 text-shadow:1;
 }
@@ -65,6 +41,41 @@ font-weight:bold;
 margin-right:20px;
 text-decoration:none;
 }
+
+#wrapper{
+background:url(images/bg-nav-image.png) left top repeat-x;
+height:166px;
+margin: 0px auto; 
+color: #000; /*This is the font-color*/
+}
+
+#content{
+text-align:center;
+position:relative;
+width:800px;
+margin:0 auto;
+border-style:solid;
+border-width:5px;
+background:#FFFFFF;
+}
+ 
+#content p { /*This styles the pargraphs within the content DIV*/
+	margin: 0; /*Different browsers have different defaults here so we set it to 0*/
+	padding: 10px; /*Adds 10px space around the pargraph, no need for blank paragraphs now*/
+	} 
+ 
+#footer{
+clear: both;
+text-align:center;
+width:800px;
+height:50px;
+border-top: 1px solid #000;
+position:absolute;
+bottom:0;
+}
+
+/*------------------*/
+
 
 
 /* ---------------------------------------------------- */

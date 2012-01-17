@@ -44,9 +44,16 @@ public class CreateHTMLindex {
 							"</div>" +
 						"</div>" +
 						
-						"<div id=\"int-site-container\">" +
-							"<div id=\"int-site\">" +
-							"<div id=\"footer\">" +
+						"<div id=\"wrapper\">" +
+							"<div id=\"content\"><p>" +
+
+	/*********************************************************************************************/					
+							
+
+	/*********************************************************************************************/						
+											
+							
+							"</p><div id=\"footer\">" +
 							"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
 							"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
 							"</div>" +
