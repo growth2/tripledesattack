@@ -23,8 +23,10 @@ public class CreateHTMLindex {
 		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><h1>DOC GENERATOR</h1>";
 		
 		
-		String test = "<p>Sip domain is: " + parser.getSipDomain() + "</p><p>Version is: " +
-						parser.getSoftwareVersion() + "</p>" + parser.getOptions().toString() +
+		String test = "<div id=\"logo\"></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
+						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>" +
+						
+						"<p>Sip domain is: " + parser.getSipDomain() + "</p><p>Version is: " + parser.getSoftwareVersion() + "</p>" + parser.getOptions().toString() +
 						
 						"<table id=\"gradient-style\" summary=\"Meeting Results\">" +
 							"<thead>" +

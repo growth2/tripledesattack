@@ -3,9 +3,40 @@
    ------------------   */
 
 
+/* Reset Body Property */
+body{border:0; margin:0; padding:0;	line-height:1.6em;}
+#navbar-container{background:#000000;}
+#int-site-container{
+background:url(images/bg-nav-image.png) left top repeat-x;
+height:166px;
+}
+#logo, #navbar, #int-site{
+width:800px;
+margin:0 auto;
+}
+/*------------------*/
+/* LOGO */
+#logo{height:54px;}
+
+/*------------------*/
+/* Nav Bar */
+#navbar{
+height:26px;
+line-height:26px;
+}
+#navbar a:link, #navbar a:visited, #navbar a:hover{
+color:#FFFFFF;
+font-weight:bold;
+margin-right:20px;
+text-decoration:none;
+}
+
+
+/* ---------------------------------------------------- */
+
 body
 {
-	line-height: 1.6em;
+
 }
 
 #hor-minimalist-a
