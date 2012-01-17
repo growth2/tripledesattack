@@ -8,6 +8,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class VCS {
 		private String searchString;
 		private Scanner xconfScanner;
 		private Scanner xstatScanner;
-		
+		private ArrayList<Endpoint> endpoints = new ArrayList<Endpoint>();
 		
 		public VCS(String xconf, String xstat) throws FileNotFoundException{
 			FileInputStream fstreamXconf = new FileInputStream(xconf);
@@ -31,6 +32,18 @@ public class VCS {
 			BufferedReader brXstat = new BufferedReader(new InputStreamReader(inXstat));
 			xconfScanner = new Scanner(brXconf);
 			xstatScanner = new Scanner(brXstat);
+			populateEndpoints();
+		}
+		
+		private void populateEndpoints(){
+			Endpoint endpoint = new Endpoint("192.168.0.2", "TANDBERG");
+			Endpoint endpoint2 = new Endpoint("192.168.0.2", "TANDBERG");
+			endpoints.add(endpoint);
+			endpoints.add(endpoint2);
+		}
+		
+		public ArrayList<Endpoint> getEndpoints(){
+			return endpoints;
 		}
 		
 		public String getSipDomain(){
