@@ -3,7 +3,7 @@
  */
 package tpdc;
 
-import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 /**
  * @author andurke
@@ -11,11 +11,10 @@ import java.io.FileNotFoundException;
  */
 public class Topology {
 
-	public VCS vcsC;
-	public VCS vcsE;
 	
-	public Topology(String xconfC, String xstatC, String xconfE, String xstatE) throws FileNotFoundException{
-		vcsC = new VCS(xconfC, xstatC);
-		vcsE = new VCS(xconfE, xstatE);
+	public Topology(ArrayList<String> conf){
+		
+		//vcsC = new VCS(xconfC, xstatC);
+		//vcsE = new VCS(xconfE, xstatE);
 	}
 }
