@@ -25,7 +25,7 @@ public class CreateHTMLindex {
 		
 		
 		
-		String test = "	<div id=\"logo\" align=\"center\">" +
+		String body = "	<div id=\"logo\" align=\"center\">" +
 							"<a href=\"http://www.atea.no\">" +
 								"<img src=\"images/atealogo.jpg\" />" +
 							"</a>" +
@@ -58,7 +58,7 @@ public class CreateHTMLindex {
 		FileWriter fstream = new FileWriter("index.html");
 		  BufferedWriter out = new BufferedWriter(fstream);
 		  out.write(start);
-		  out.write(test);
+		  out.write(body);
 		  out.write(slutt);
 		  //Close the output stream
 		  out.close();
