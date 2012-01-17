@@ -28,7 +28,7 @@ public class TPDC {
 			System.out.println("FILE NOT FOUND");
 			e.printStackTrace();
 		}
-		CreateHTML cHTML = new CreateHTML(parser);
+		CreateHTMLindex cHTML = new CreateHTMLindex(parser);
 		cHTML.buildHTML();
 	}
 	private static void initialize(){
