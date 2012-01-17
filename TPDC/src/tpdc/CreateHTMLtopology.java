@@ -6,6 +6,7 @@ package tpdc;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -13,10 +14,12 @@ import java.io.IOException;
  *
  */
 public class CreateHTMLtopology {
-	private Topology t1;
+	private ArrayList<VCS> vcsC;
+	private ArrayList<VCS> vcsE;
 	
-	public CreateHTMLtopology(Topology t1){
-		this.t1 = t1;
+	public CreateHTMLtopology(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE){
+		this.vcsC = vcsC;
+		this.vcsE = vcsE;
 	}
 	
 	public void buildHTML() throws IOException{
@@ -26,7 +29,7 @@ public class CreateHTMLtopology {
 		String test = "<div id=\"logo\"></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
 						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>" +
 						
-						"<p>Sip domain is: " + t1.vcsC.getSipDomain() + "</p><p>Version is: " + t1.vcsC.getSoftwareVersion() + "</p>" + t1.vcsC.getEndpoints().get(0).getIpAddress() +
+						"<p>Sip domain is: " + vcsC.get(0).getSipDomain() + "</p><p>Version is: " + vcsC.get(0).getSoftwareVersion() + "</p>" + vcsC.get(0).getEndpoints().get(0).getIpAddress() +
 						
 						"<table id=\"gradient-style\" summary=\"Meeting Results\">" +
 							"<thead>" +
