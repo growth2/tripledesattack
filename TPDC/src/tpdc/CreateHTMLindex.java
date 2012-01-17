@@ -13,15 +13,16 @@ import java.io.IOException;
  *
  */
 public class CreateHTMLindex {
-	private Parser parser;
+	private Topology t1;
 	
-	public CreateHTMLindex(Parser parser){
-		this.parser = parser;
+	public CreateHTMLindex(Topology t1){
+		this.t1 = t1;
 	}
 	
 	public void buildHTML() throws IOException{
 		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><h1>DOC GENERATOR</h1>";
 		
+		System.out.println(t1.vcsC.getDomain() + " " + t1.vcsC.getEndpoints().get(1).getIpAddress());
 		
 		String test = "<div id=\"logo\"></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
 						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>";

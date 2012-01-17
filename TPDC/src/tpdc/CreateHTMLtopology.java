@@ -13,10 +13,10 @@ import java.io.IOException;
  *
  */
 public class CreateHTMLtopology {
-	private Parser parser;
+	private Topology t1;
 	
-	public CreateHTMLtopology(Parser parser){
-		this.parser = parser;
+	public CreateHTMLtopology(Topology t1){
+		this.t1 = t1;
 	}
 	
 	public void buildHTML() throws IOException{
@@ -26,7 +26,7 @@ public class CreateHTMLtopology {
 		String test = "<div id=\"logo\"></div><div id=\"navbar-container\"><div id=\"navbar\"><a href=\"#\">Home</a><a href=\"#\">About</a><!-- Other links here...--></div></div>" +
 						"<div id=\"int-site-container\"><div id=\"int-site\"></div></div>" +
 						
-						"<p>Sip domain is: " + parser.getSipDomain() + "</p><p>Version is: " + parser.getSoftwareVersion() + "</p>" + parser.getOptions().toString() +
+						"<p>Sip domain is: " + t1.vcsC.getSipDomain() + "</p><p>Version is: " + t1.vcsC.getSoftwareVersion() + "</p>" + t1.vcsC.getEndpoints().get(0).getIpAddress() +
 						
 						"<table id=\"gradient-style\" summary=\"Meeting Results\">" +
 							"<thead>" +

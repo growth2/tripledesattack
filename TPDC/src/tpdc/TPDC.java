@@ -19,16 +19,19 @@ public class TPDC {
 	public static void main(String[] args) throws IOException{
 		//initialize();
 		
-		String xconf = args[0];
-		String xstat = args[1];
-		Parser parser = null;
+		String xconfC = args[0];
+		String xstatC = args[1];
+		String xconfE = "test2";
+		String xstatE = "test3";
+		Topology t1 = null;
 		try {
-			parser = new Parser(xconf, xstat);
+			t1 = new Topology(xconfC, xstatC, xconfE, xstatC);
 		} catch (FileNotFoundException e) {
 			System.out.println("FILE NOT FOUND");
 			e.printStackTrace();
+			return;
 		}
-		CreateHTMLindex cHTML = new CreateHTMLindex(parser);
+		CreateHTMLindex cHTML = new CreateHTMLindex(t1);
 		cHTML.buildHTML();
 	}
 	private static void initialize(){
