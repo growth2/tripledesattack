@@ -23,7 +23,7 @@ public class TPDC {
 	private static boolean debug;
 	
 	public static void main(String[] args) throws IOException{
-		debug = false;
+		debug = true;
 		initialize();
 		createHTML();
 	}
