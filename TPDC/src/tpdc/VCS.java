@@ -6,7 +6,6 @@ package tpdc;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,17 +21,32 @@ public class VCS {
 		private Scanner xconfScanner;
 		private Scanner xstatScanner;
 		private ArrayList<Endpoint> endpoints = new ArrayList<Endpoint>();
+		private String xconf;
+		private String xstat;
 		
-		public VCS(String xconf, String xstat) throws FileNotFoundException{
-			FileInputStream fstreamXconf = new FileInputStream(xconf);
-			DataInputStream inXconf = new DataInputStream(fstreamXconf);
-			BufferedReader brXconf = new BufferedReader(new InputStreamReader(inXconf));
-			FileInputStream fstreamXstat = new FileInputStream(xstat);
-			DataInputStream inXstat = new DataInputStream(fstreamXstat);
-			BufferedReader brXstat = new BufferedReader(new InputStreamReader(inXstat));
-			xconfScanner = new Scanner(brXconf);
-			xstatScanner = new Scanner(brXstat);
+		
+		public VCS(String xconf, String xstat){
+			this.xconf = xconf;
+			this.xstat = xstat;
+			initializeRead();
 			populateEndpoints();
+		}
+		
+		private void initializeRead(){
+			try {
+				FileInputStream fstreamXconf = new FileInputStream(xconf);
+				DataInputStream inXconf = new DataInputStream(fstreamXconf);
+				BufferedReader brXconf = new BufferedReader(new InputStreamReader(inXconf));
+				FileInputStream fstreamXstat = new FileInputStream(xstat);
+				DataInputStream inXstat = new DataInputStream(fstreamXstat);
+				BufferedReader brXstat = new BufferedReader(new InputStreamReader(inXstat));
+				xconfScanner = new Scanner(brXconf);
+				xstatScanner = new Scanner(brXstat);
+			} catch (Exception e){
+				System.out.println("FILE NOT FOUND. TRY AGAIN.");
+				e.printStackTrace();
+			}
+			
 		}
 		
 		private void populateEndpoints(){
@@ -196,8 +210,7 @@ public class VCS {
 		}
 		
 		private String findValue(int mode){
-			xconfScanner.reset();
-			xstatScanner.reset();
+			initializeRead();
 			Scanner currScanner;
 			if(mode == 1)currScanner = xconfScanner;
 			else currScanner = xstatScanner;
