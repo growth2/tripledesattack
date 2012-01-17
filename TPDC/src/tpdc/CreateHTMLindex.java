@@ -14,12 +14,9 @@ import java.util.ArrayList;
  *
  */
 public class CreateHTMLindex {
-	private ArrayList<VCS> vcsC;
-	private ArrayList<VCS> vcsE;
+
 	
-	public CreateHTMLindex(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-		this.vcsC = vcsC;
-		this.vcsE = vcsE;
+	public CreateHTMLindex() throws IOException{
 		buildHTML();
 	}
 	

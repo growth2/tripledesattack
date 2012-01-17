@@ -21,13 +21,13 @@ public class TPDC {
 	private static ArrayList<VCS> vcsC = new ArrayList<VCS>();
 	private static ArrayList<VCS> vcsE = new ArrayList<VCS>();
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		initializeDebug();
 		createHTML();
 
 	}
 	
-	private static void createHTML(){
+	private static void createHTML() throws IOException{
 		CreateHTMLindex cIndex = new CreateHTMLindex();
 		CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
 	}
