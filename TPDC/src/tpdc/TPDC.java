@@ -34,16 +34,16 @@ public class TPDC {
 	}
 	
 	private static void initialize() throws FileNotFoundException{
-		Scanner in = new Scanner(System.in);
-		System.out.print("Enter # of VCS Controls in topology: ");
-		int numVCSC = Integer.parseInt(in.nextLine());
-		System.out.print("Enter # of VCS Expressways in topology: ");
-		int numVCSE = Integer.parseInt(in.nextLine());
-		
 		if(debug){
 			vcsC.add(new VCS("xconf.txt", "xstat.txt"));
 		}
 		else{
+			Scanner in = new Scanner(System.in);
+			System.out.print("Enter # of VCS Controls in topology: ");
+			int numVCSC = Integer.parseInt(in.nextLine());
+			System.out.print("Enter # of VCS Expressways in topology: ");
+			int numVCSE = Integer.parseInt(in.nextLine());
+			
 			for(int i = 0; i<numVCSC; i++){
 				System.out.print("Enter xconf filename for VCS Control #" + i+1 + " : ");
 				String xConf = in.nextLine();
