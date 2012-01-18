@@ -451,30 +451,123 @@
 *s/end
 
 *s Registrations:
-     Registration 3:
+     Registration 1:
        Protocol: H323
-       Node: "DefaultSubZone"
-       SerialNumber: "67c98d12-3c29-11e1-b55f-0010f320f75a"
+       Node: "Intern zone"
+       SerialNumber: "538ec5e6-e2cf-11e0-885e-0010f31d1a42"
        Authenticated: False
-       CreationTime: "2012-01-11 08:53:53"
-       Duration: 455257
+       CreationTime: "2011-09-19 16:54:50"
+       Duration: 3723536
        VendorInfo: "TANDBERG"
        H323:
          Type: Endpoint
          CallSignalAddresses:
-           Address: "10.19.16.201:1720"
+           Address: "10.90.0.3:1720"
          RASAddresses:
-           Address: "10.19.16.201:1719"
-           Apparent: "10.19.16.201:1719"
+           Address: "10.90.0.3:1719"
+           Apparent: "10.90.0.3:1719"
          Aliases:
            Alias 1:
              Type: H323Id
              Origin: Endpoint
-             Value: "test@vcs.lab24.no"
+             Value: "fhjol@video.sfj.no"
            Alias 2:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "fhjol@sfj.no"
+         OutOfResources: False
+     Registration 2:
+       Protocol: H323
+       Node: "Intern zone"
+       SerialNumber: "3c91340e-e578-11e0-a997-0010f31d1a42"
+       Authenticated: True
+       CreationTime: "2011-09-23 02:08:59"
+       Duration: 3431087
+       VendorInfo: "TANDBERG"
+       H323:
+         Type: Endpoint
+         CallSignalAddresses:
+           Address: "10.90.0.34:1720"
+         RASAddresses:
+           Address: "10.90.0.34:1719"
+           Apparent: "10.90.0.34:1719"
+         Aliases:
+           Alias 1:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "sahaf@video.sfj.no"
+           Alias 2:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "sahaf@sfj.no"
+         OutOfResources: False
+     Registration 3:
+       Protocol: H323
+       Node: "Intern zone"
+       SerialNumber: "9a004464-e2cf-11e0-85fe-0010f31d1a42"
+       Authenticated: True
+       CreationTime: "2011-09-19 16:56:49"
+       Duration: 3723417
+       VendorInfo: "TANDBERG"
+       H323:
+         Type: Endpoint
+         CallSignalAddresses:
+           Address: "10.90.0.2:1720"
+         RASAddresses:
+           Address: "10.90.0.2:1719"
+           Apparent: "10.90.0.2:1719"
+         Aliases:
+           Alias 1:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "fhask@video.sfj.no"
+           Alias 2:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "fhask@sfj.no"
+         OutOfResources: False
+     Registration 5:
+       Protocol: SIP
+       Node: "Intern zone"
+       SerialNumber: "e6e5bf3e-e8e7-11e0-85f7-0010f31d1a42"
+       Authenticated: True
+       CreationTime: "2011-09-27 11:05:53"
+       Duration: 3053273
+       SecondsSinceLastRefresh: "35"
+       SecondsToExpiry: "25"
+       VendorInfo: "TANDBERG/515 (TC4.2.0.260857)"
+       SIP:
+         AOR: "fhjol@video.sfj.no"
+         Contact: "sip:fhjol@10.90.0.3:5061;transport=tls"
+         Instance: ""<urn:uuid:57fab8b3-32f6-5947-beef-bdcbef3e031e>""
+         Registration:
+           ID: ""
+         Public:
+           GRUU: "sip:fhjol@video.sfj.no;gr=urn:uuid:57fab8b3-32f6-5947-beef-bdcbef3e031e"
+     Registration 8:
+       Protocol: H323
+       Node: "Intern zone"
+       SerialNumber: "7d0ae4a2-e2d1-11e0-82c7-0010f31d1a42"
+       Authenticated: True
+       CreationTime: "2011-09-19 17:10:19"
+       Duration: 3722607
+       VendorInfo: "unknown"
+       H323:
+         Type: Endpoint
+         CallSignalAddresses:
+           Address: "10.90.0.4:1720"
+         RASAddresses:
+           Address: "10.90.0.4:1719"
+           Apparent: "10.90.0.4:1719"
+         Aliases:
+           Alias 1:
              Type: E164
              Origin: Endpoint
-             Value: "12345"
+             Value: "360650"
+           Alias 2:
+             Type: H323Id
+             Origin: Endpoint
+             Value: "fhutl@video.sfj.no"
          OutOfResources: False
 *s/end
 
