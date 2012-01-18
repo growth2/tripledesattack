@@ -23,6 +23,8 @@ public class VCS {
 		private ArrayList<Endpoint> endpoints = new ArrayList<Endpoint>();
 		private String xconf;
 		private String xstat;
+		private int numEP;
+		private int numUniqueEP;
 		
 		
 		public VCS(String xconf, String xstat){
@@ -46,14 +48,84 @@ public class VCS {
 				System.out.println("FILE NOT FOUND. TRY AGAIN.");
 				e.printStackTrace();
 			}
-			
 		}
 		
 		private void populateEndpoints(){
-			Endpoint endpoint = new Endpoint("192.168.0.2", "TANDBERG");
-			Endpoint endpoint2 = new Endpoint("192.168.0.2", "TANDBERG");
-			endpoints.add(endpoint);
-			endpoints.add(endpoint2);
+			initializeRead();
+			ArrayList<String> endCfg = new ArrayList<String>(); 
+			ArrayList<ArrayList<String>> endCfgArr = new ArrayList<ArrayList<String>>();
+			while (xstatScanner.hasNextLine()){
+				if ((xstatScanner.nextLine().indexOf("*s Registrations:")) != -1){
+					break;
+				}
+			}
+			String line;
+			line = xstatScanner.nextLine().trim();
+			if(line.contains("*s/end")){
+				return;
+			}
+			endCfg.add(line); 
+			line = xstatScanner.nextLine().trim();
+			numEP++;
+			do {
+				if (line.contains("Registration ")) {
+					numEP++;
+					endCfgArr.add(endCfg);
+					endCfg = new ArrayList<String>();
+				}
+				endCfg.add(line); 
+				line = xstatScanner.nextLine().trim();
+			}
+			while(!line.contains("*s/end"));
+			endCfgArr.add(endCfg);
+			if (endCfg.size() == 0) return;
+			
+			for(int i = 0; i<numEP; i++){
+				Endpoint endpoint = new Endpoint();
+				endpoint = populateEndpointSimple(endCfgArr.get(i), endpoint);
+				endpoint = populateEndpointAdv(endCfgArr.get(i), endpoint);
+				endpoints.add(endpoint);
+			}
+
+			System.out.println("ARRAY: " + numEP + endCfg.toString());
+
+			
+		}
+		private Endpoint populateEndpointSimple(ArrayList<String> endCfg, Endpoint endpoint){
+				endpoint.setAuthenticated(searchEndCfg(endCfg, "Authenticated:"));
+				endpoint.setProtocol(searchEndCfg(endCfg, "Protocol:"));
+				endpoint.setNode(searchEndCfg(endCfg, "Node:"));
+				endpoint.setVendor(searchEndCfg(endCfg, "VendorInfo:"));
+			return endpoint;
+		}
+		
+		private Endpoint populateEndpointAdv(ArrayList<String> endCfg, Endpoint endpoint){
+			if(endpoint.getProtocol().equals("H323"))endpoint.setIpAddress((searchEndCfg(endCfg, "Address: ")).split(":")[0]);
+			else endpoint.setIpAddress(searchEndCfg(endCfg, "Contact: ").split("@")[1].split(":")[0]);
+			System.out.println(endpoint.getIpAddress());
+			return endpoint;
+		}
+		
+		private String searchEndCfg(ArrayList<String> endCfg, String search){
+			for (String line : endCfg) {
+			    if(line.contains(search))return cleanValidValue(line.split(" ")[1]);
+			}
+			return "";
+		}
+		
+
+		
+		private void numUniqueEP(ArrayList<String> endCfg){
+			numUniqueEP = 0;
+			for(int i=0; i<endCfg.size();i++){
+				
+			}
+			for (String line : endCfg) {
+			    if(line.contentEquals("Registration ")){
+			    	
+			    }
+			}
+			
 		}
 		
 		public ArrayList<Endpoint> getEndpoints(){
@@ -191,6 +263,7 @@ public class VCS {
 		}
 
 		public HashMap<String, String> getOptions(){
+			initializeRead();
 			HashMap<String, String> options = new HashMap<String, String>();
 			while (xstatScanner.hasNextLine()){
 				if ((xstatScanner.nextLine().indexOf("Options:")) != -1){
@@ -267,5 +340,39 @@ public class VCS {
 			}
 			return options;
 		}
+				
+				
+				private void numEP(ArrayList<String> endCfg){
+			numEP = 0;
+			for (String line : endCfg) {
+			    if(line.contains("Registration ")){
+			    	numEP++;
+			    }
+			}
+			//numUniqueEP(endCfg);
+		}
+		//			
+//				while((xstatScanner.nextLine().indexOf("OutOfResources")) == -1){
+//					String line = xstatScanner.nextLine();
+//					endpoint.setProtocol(line.substring(line.indexOf("Protocol: "),line.length()));
+//					while((xstatScanner.nextLine().indexOf(endpoint.getProtocol())) == -1){
+//					
+//					}
+//					
+//					xstatScanner.nextLine();
+//					xstatScanner.nextLine();
+//					xstatScanner.nextLine();
+//					
+//					
+//				}
+//				String key = xstatScanner.nextLine();
+//				String searchString = "       Key: ";
+//				key = key.substring(key.indexOf(searchString)+searchString.length(),key.length());
+//				String desc = xstatScanner.nextLine();
+//				searchString = "       Description: ";
+//				desc = desc.substring(desc.indexOf(searchString)+searchString.length(),desc.length());
+//				options.put(cleanValidValue(key), cleanValidValue(desc));
+//			}
+				//return options;
 
 	*/
