@@ -27,7 +27,8 @@ public class VCS {
 		private int numEP;
 		private int numUniqueEP;
 		
-		
+
+
 		public VCS(String xconf, String xstat){
 			this.xconf = xconf;
 			this.xstat = xstat;
@@ -152,6 +153,11 @@ public class VCS {
 			}
 			epIPs.add(epIP);
 			numUniqueEP++;	
+		}
+		
+		
+		public int getNumUniqueEP() {
+			return numUniqueEP;
 		}
 		
 		public ArrayList<Endpoint> getEndpoints(){

@@ -26,7 +26,8 @@ public class CreateHTMLindex {
 	public void buildHTML() throws IOException{
 		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
 		
-		
+		//Eksempel, hente ut ip-adresse fra endepunkt0 fra VCS0
+		//String endpointIPaddress = vcsC.get(0).getEndpoints().get(0).getIpAddress();
 		
 		String body = "	<div id=\"logo\" align=\"center\">" +
 							"<a href=\"http://www.atea.no\">" +
