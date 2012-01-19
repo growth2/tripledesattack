@@ -38,10 +38,10 @@ public class CreateHTMLindex {
 						"<div id=\"navbar-container\">" +
 						"	<div id=\"navbar\" align=\"center\">" +
 							"	<a href=\"index.html\">" +
-							"		Oversikt" +
+							"		Overview" +
 							"	</a>" +
 							"	<a href=\"topology.html\">" +
-							"		Topologi" +
+							"		Topology" +
 							"	</a>" +
 							"	<!-- Other links here...-->" +
 							"</div>" +
@@ -52,24 +52,7 @@ public class CreateHTMLindex {
 
 	/*********************************************************************************************/					
 			
-"<p>Sip domain is: " + vcsC.get(0).getSipDomain() + "</p>" +
-"<p>Version is: " + vcsC.get(0).getSoftwareVersion() + "</p>" +
-		"<p align=\"center\"><table id=\"gradient-style\" summary=\"Meeting Results\">" +
-			"<thead>" +
-				"<tr>" +
-					"<th scope=\"col\">Employee</th>" +
-					"<th scope=\"col\">Division</th>" +
-					"<th scope=\"col\">Suggestions</th>" +
-					"<th scope=\"col\">Rating</th>" +
-				"</tr>" +
-			"</thead>" +						
-			"<tbody>" +
-				"<tr><td>Stephen C. Cox</td><td>Marketing</td><td>Make discount offers</td><td>3/10</td></tr>" +
-				"<tr><td>Josephin Tan</td><td>Advertising</td><td>Give bonuses</td><td>5/10</td></tr>" +
-				"<tr><td>Joyce Ming</td><td>Marketing</td><td>New designs</td><td>8/10</td></tr>" +
-				"<tr><td>James A. Pentel</td><td>Marketing</td><td>Better Packaging</td><td>8/10</td></tr>" +
-			"</tbody>" +
-		"</table></p>" +
+"<p>This is the documentation of the video</p>" +
 
 	/*********************************************************************************************/						
 											
