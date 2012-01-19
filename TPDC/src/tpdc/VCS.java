@@ -23,6 +23,7 @@ public class VCS {
 		private ArrayList<Endpoint> endpoints = new ArrayList<Endpoint>();
 		private String xconf;
 		private String xstat;
+		private ArrayList<String> epIPs = new ArrayList<String>();
 		private int numEP;
 		private int numUniqueEP;
 		
@@ -32,6 +33,7 @@ public class VCS {
 			this.xstat = xstat;
 			initializeRead();
 			populateEndpoints();
+			printEndpoints(); //debug
 		}
 		
 		private void initializeRead(){
@@ -59,6 +61,7 @@ public class VCS {
 					break;
 				}
 			}
+			
 			String line;
 			line = xstatScanner.nextLine().trim();
 			if(line.contains("*s/end")){
@@ -81,29 +84,59 @@ public class VCS {
 			if (endCfg.size() == 0) return;
 			
 			for(int i = 0; i<numEP; i++){
-				Endpoint endpoint = new Endpoint();
-				endpoint = populateEndpointSimple(endCfgArr.get(i), endpoint);
-				endpoint = populateEndpointAdv(endCfgArr.get(i), endpoint);
+				Endpoint endpoint = populateEndpoint(endCfgArr.get(i));
+				numUniqueEP(endpoint.getIpAddress());
 				endpoints.add(endpoint);
 			}
-
-			System.out.println("ARRAY: " + numEP + endCfg.toString());
-
-			
 		}
-		private Endpoint populateEndpointSimple(ArrayList<String> endCfg, Endpoint endpoint){
-				endpoint.setAuthenticated(searchEndCfg(endCfg, "Authenticated:"));
-				endpoint.setProtocol(searchEndCfg(endCfg, "Protocol:"));
-				endpoint.setNode(searchEndCfg(endCfg, "Node:"));
-				endpoint.setVendor(searchEndCfg(endCfg, "VendorInfo:"));
+		
+		private Endpoint populateEndpoint(ArrayList<String> endCfg){
+			Endpoint endpoint = findEp(findEpIp(endCfg));
+			if(endpoint == null){
+				endpoint = new Endpoint();
+				endpoint.setIpAddress(findEpIp(endCfg));
+			}
+			//Set protocol-specific attributes
+			if((searchEndCfg(endCfg, "Protocol:")).equals("H323")){
+				endpoint.setH323(true);
+				//Set E164 and H323 aliases
+				ArrayList<String> h323IDs = new ArrayList<String>();
+				for (int i = 0; i<endCfg.size(); i++) {
+				    if(endCfg.get(i).contains("Type: H323Id")){
+				    	h323IDs.add(cleanValidValue(endCfg.get(i+2).split(" ")[1]));
+				    }
+				    else if (endCfg.get(i).contains("Type: E164")){
+				    	endpoint.setE164Alias(cleanValidValue(endCfg.get(i+2).split(" ")[1]));
+				    }
+				}
+				endpoint.setH323IDs(h323IDs);
+			}
+			else {		
+				endpoint.setSip(true);
+				//Set SIP URI
+				endpoint.setSipURI(searchEndCfg(endCfg, "AOR"));
+			}
+			//Set simple attributes
+			endpoint.setAuthenticated(searchEndCfg(endCfg, "Authenticated:"));
+			endpoint.setNode(searchEndCfg(endCfg, "Node:"));
+			endpoint.setVendor(searchEndCfg(endCfg, "VendorInfo:"));
+
 			return endpoint;
 		}
 		
-		private Endpoint populateEndpointAdv(ArrayList<String> endCfg, Endpoint endpoint){
-			if(endpoint.getProtocol().equals("H323"))endpoint.setIpAddress((searchEndCfg(endCfg, "Address: ")).split(":")[0]);
-			else endpoint.setIpAddress(searchEndCfg(endCfg, "Contact: ").split("@")[1].split(":")[0]);
-			System.out.println(endpoint.getIpAddress());
-			return endpoint;
+		private String findEpIp(ArrayList<String> endCfg){
+			if((searchEndCfg(endCfg, "Protocol:")).equals("H323")) return((searchEndCfg(endCfg, "Address: ")).split(":")[0]);
+			else return (searchEndCfg(endCfg, "Contact: ").split("@")[1].split(":")[0]);
+		}
+		
+		private Endpoint findEp(String ipAddress){
+			for (Endpoint ep : endpoints){
+				if(ep.getIpAddress().equals(ipAddress)){
+					endpoints.remove(ep);
+					return ep;
+				}
+			}
+			return null;
 		}
 		
 		private String searchEndCfg(ArrayList<String> endCfg, String search){
@@ -113,19 +146,12 @@ public class VCS {
 			return "";
 		}
 		
-
-		
-		private void numUniqueEP(ArrayList<String> endCfg){
-			numUniqueEP = 0;
-			for(int i=0; i<endCfg.size();i++){
-				
+		private void numUniqueEP(String epIP){
+			for (String line : epIPs) {
+			    if(line.contentEquals(epIP))return;
 			}
-			for (String line : endCfg) {
-			    if(line.contentEquals("Registration ")){
-			    	
-			    }
-			}
-			
+			epIPs.add(epIP);
+			numUniqueEP++;	
 		}
 		
 		public ArrayList<Endpoint> getEndpoints(){
@@ -297,9 +323,7 @@ public class VCS {
 			}
 			return cleanValidValue(value);
 		}
-		
-		
-		
+
 		private String cleanValidValue(String value){
 			if (value == "")return "N/A";
 			else {
@@ -310,7 +334,22 @@ public class VCS {
 			}
 		}
 		
-		
+		private void printEndpoints(){
+			System.out.println("# of endpoints: " + numEP);
+			System.out.println("# of unique endpoints: " + numUniqueEP);
+			for (Endpoint endpoint : endpoints){
+				System.out.println("#####################################");
+				System.out.println("IP: " + endpoint.getIpAddress());
+				System.out.println("SIP mode: " + endpoint.isSip());
+				System.out.println("H323 mode: " + endpoint.isH323());
+				System.out.println("H323id: " + endpoint.getH323IDs().toString());
+				System.out.println("E164alias: " + endpoint.getE164Alias());
+				System.out.println("SIP URI: " + endpoint.getSipURI());
+				System.out.println("Node: " + endpoint.getNode());
+				System.out.println("Vendor: " + endpoint.getVendor());
+				System.out.println("Authenticated: " + endpoint.getAuthenticated());
+			}
+		}
 }
 
 
