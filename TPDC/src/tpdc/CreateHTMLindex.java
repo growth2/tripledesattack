@@ -29,6 +29,9 @@ public class CreateHTMLindex {
 		//Eksempel, hente ut ip-adresse fra endepunkt0 fra VCS0
 		//String endpointIPaddress = vcsC.get(0).getEndpoints().get(0).getIpAddress();
 		
+		//Eksempel, hente ut Lync-adresse
+		//String lyncAddress = vcsC.get(0).getZones().get(0).getPeerAdr();
+		
 		String body = "	<div id=\"logo\" align=\"center\">" +
 							"<a href=\"http://www.atea.no\">" +
 								"<img src=\"images/atealogo.jpg\" />" +
