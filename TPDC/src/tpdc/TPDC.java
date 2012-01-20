@@ -38,7 +38,7 @@ public class TPDC {
 	
 	private static void initialize() throws IOException{
 		if(debug){
-			vcsC.add(new VCS("xconf.txt", "xstat.txt"));
+			vcsC.add(new VCS("xconf.txt", "xstat.txt", false));
 		}
 		else{
 			Scanner in = new Scanner(System.in);
@@ -52,7 +52,7 @@ public class TPDC {
 				String xConf = in.nextLine();
 				System.out.print("Enter xconf filename for VCS Control #" + i+1 + " : ");
 				String xStat = in.nextLine();
-				vcsC.add(new VCS(xConf, xStat));
+				vcsC.add(new VCS(xConf, xStat, false));
 			}
 			
 			for(int i = 0; i<numVCSE; i++){
@@ -60,7 +60,7 @@ public class TPDC {
 				String xConf = in.nextLine();
 				System.out.print("Enter xstat filename for VCS Expressway #" + i+1 + " : ");
 				String xStat = in.nextLine();
-				vcsE.add(new VCS(xConf, xStat));
+				vcsE.add(new VCS(xConf, xStat, true));
 			}
 		}
 		createHTML();

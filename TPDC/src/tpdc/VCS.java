@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author andurke
@@ -26,32 +28,60 @@ public class VCS {
 		private ArrayList<String> epIPs = new ArrayList<String>();
 		private int numEP;
 		private int numUniqueEP;
-		
+		private boolean isExpressway;
+		private boolean lync;
+		private boolean ocs;
+		private boolean sametime;
+		private boolean cucm;
+		private boolean traversal;
+		private ArrayList<Zone> zones = new ArrayList<Zone>();
+		private String[] searchLync = new String[] {"lync", "b2bua"};
+		private String[] searchOCS = new String[] {"ocs"};
+		private String[] searchCUCM = new String[] {"cisco", "cucm", "callmanager"};
+		private String[] searchIBM = new String[] {"sametime", "ibm"};
 
-
-		public VCS(String xconf, String xstat){
+		public VCS(String xconf, String xstat, boolean isExpressway){
 			this.xconf = xconf;
 			this.xstat = xstat;
+			this.isExpressway = isExpressway;
 			initializeRead();
 			populateEndpoints();
+			populateZones();
 			printEndpoints(); //debug
+			printZones(); //debug
+			
 		}
 		
-		private void initializeRead(){
-			try {
-				FileInputStream fstreamXconf = new FileInputStream(xconf);
-				DataInputStream inXconf = new DataInputStream(fstreamXconf);
-				BufferedReader brXconf = new BufferedReader(new InputStreamReader(inXconf));
-				FileInputStream fstreamXstat = new FileInputStream(xstat);
-				DataInputStream inXstat = new DataInputStream(fstreamXstat);
-				BufferedReader brXstat = new BufferedReader(new InputStreamReader(inXstat));
-				xconfScanner = new Scanner(brXconf);
-				xstatScanner = new Scanner(brXstat);
-			} catch (Exception e){
-				System.out.println("FILE NOT FOUND. TRY AGAIN.");
-				e.printStackTrace();
+		
+		private void populateZones(){
+			initializeRead();
+			String strLine = xconfScanner.nextLine();
+			while (xconfScanner.hasNextLine()){
+				Matcher m = Pattern.compile("Zones Zone \\d Name").matcher(strLine);
+				if (m.find()){
+					Zone zone = new Zone();
+					zone.setNum(Integer.parseInt(strLine.split(" ")[4]));
+					zone.setName(cleanValidValue(strLine.split("Zones Zone \\d Name: ")[1]));
+					while(strLine.contains("Zones Zone " + zone.getNum())){
+						strLine =  xconfScanner.nextLine();
+						if(strLine.contains("Peer 1 Address:"))zone.setPeerAdr(cleanValidValue(strLine.split(" ")[9]));
+						else if(strLine.contains("Zones Zone " + zone.getNum() + " Type:"))zone.setType(strLine.split(" ")[6]);
+					}
+					zone = findIntegration(zone);
+					zones.add(zone);
+				}
+				else strLine = xconfScanner.nextLine();
 			}
 		}
+		
+		private boolean findIntegration(String[] search, String zoneName){
+			for(String searchWord : search){
+				if(zoneName.toLowerCase().contains(searchWord))return true;
+			}
+			return false;
+		}
+		
+		
 		
 		private void populateEndpoints(){
 			initializeRead();
@@ -294,6 +324,35 @@ public class VCS {
 			return findValue(2);
 		}
 
+		public boolean isExpressway() {
+			return isExpressway;
+		}
+
+
+		public boolean isLync() {
+			return lync;
+		}
+		
+		public boolean isOcs() {
+			return ocs;
+		}
+
+		public boolean isSametime() {
+			return sametime;
+		}
+
+		public boolean isCucm() {
+			return cucm;
+		}
+
+		public boolean isTraversal() {
+			return traversal;
+		}
+
+		public ArrayList<Zone> getZones() {
+			return zones;
+		}
+
 		public HashMap<String, String> getOptions(){
 			initializeRead();
 			HashMap<String, String> options = new HashMap<String, String>();
@@ -314,6 +373,7 @@ public class VCS {
 			return options;
 		}
 		
+
 		private String findValue(int mode){
 			initializeRead();
 			Scanner currScanner;
@@ -340,11 +400,57 @@ public class VCS {
 			}
 		}
 		
+		private Zone findIntegration(Zone zone){
+			if(zone.getType().equals("TraversalClient")){
+				zone.setIntegration("TraversalClient");
+				traversal = true;
+			}
+			
+			else if(zone.getType().equals("TraversalServer")){
+				zone.setIntegration("TraversalServer");
+				traversal = true;
+			}
+			
+			else if(findIntegration(searchLync, zone.getName())){
+				zone.setIntegration("Lync");
+				lync = true;
+			}
+			else if (findIntegration(searchOCS, zone.getName())){
+				zone.setIntegration("OCS");
+				ocs = true;
+			}
+			else if (findIntegration(searchCUCM, zone.getName())){
+				zone.setIntegration("CUCM");
+				cucm = true;
+			}
+			else if (findIntegration(searchIBM, zone.getName())){
+				zone.setIntegration("Sametime");
+				sametime = true;
+			}
+			return zone;
+		}
+		
+		private void initializeRead(){
+			try {
+				FileInputStream fstreamXconf = new FileInputStream(xconf);
+				DataInputStream inXconf = new DataInputStream(fstreamXconf);
+				BufferedReader brXconf = new BufferedReader(new InputStreamReader(inXconf));
+				FileInputStream fstreamXstat = new FileInputStream(xstat);
+				DataInputStream inXstat = new DataInputStream(fstreamXstat);
+				BufferedReader brXstat = new BufferedReader(new InputStreamReader(inXstat));
+				xconfScanner = new Scanner(brXconf);
+				xstatScanner = new Scanner(brXstat);
+			} catch (Exception e){
+				System.out.println("FILE NOT FOUND. TRY AGAIN.");
+				e.printStackTrace();
+			}
+		}
+		
 		private void printEndpoints(){
 			System.out.println("# of endpoints: " + numEP);
 			System.out.println("# of unique endpoints: " + numUniqueEP);
 			for (Endpoint endpoint : endpoints){
-				System.out.println("#####################################");
+				System.out.println("###########ENDPOINT#############");
 				System.out.println("IP: " + endpoint.getIpAddress());
 				System.out.println("SIP mode: " + endpoint.isSip());
 				System.out.println("H323 mode: " + endpoint.isH323());
@@ -356,6 +462,20 @@ public class VCS {
 				System.out.println("Authenticated: " + endpoint.getAuthenticated());
 			}
 		}
+		
+		private void printZones(){
+			for (Zone zone : zones){
+				System.out.println("###########ZONE#############");
+				System.out.println("Num: " + zone.getNum());
+				System.out.println("Name: " + zone.getName());
+				System.out.println("Peer adr: " + zone.getPeerAdr());
+				System.out.println("Integration: " + zone.getIntegration());
+				System.out.println("Type: " + zone.getType());
+			}
+		}
+		
+		
+		
 }
 
 
