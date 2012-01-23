@@ -52,6 +52,7 @@ public class CreateHTMLtopology {
 
 	/*********************************************************************************************/
 			
+	/*********************************************************************************************/
 		"<h1>Infrastructure</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
 			"<thead>" +
 				"<tr>" +
@@ -84,12 +85,13 @@ public class CreateHTMLtopology {
 				"<th scope=\"col\">Sip</th>" +
 			"</tr>" +
 		"</thead>" +						
-		"<tbody>" +
+		"<tbody>";
 		/***pseudocode***/
-			
-			"<tr><td>" + vcsC.get(0).getEndpoints().get(0).getIpAddress() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getE164Alias() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getH323IDs() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getSipURI() + "</td></tr>" +
+		for(Endpoint eachEP : vcsC.get( 0).getEndpoints()){
+			body += "<tr><td>" + eachEP.getIpAddress() + "</td><td>" + eachEP.getE164Alias() + "</td><td>" + eachEP.getH323IDs() + "</td><td>" + eachEP.getSipURI() + "</td></tr>";
 		/***pseudocode***/
-		"</tbody>" +
+		}
+		body += "</tbody>" +
 		"</table></p>" +
 		
 			
