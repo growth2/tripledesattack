@@ -35,7 +35,7 @@ public class CreateHTMLstatic {
 	"<div id=\"wrapper\">" +
 		"<div id=\"content\">";
 	
-	private static String end = "<div id=\"footer\">" +
+	private static String end = "<p></p><p></p><div id=\"footer\">" +
 			"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
 			"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
 			"</div>" +
