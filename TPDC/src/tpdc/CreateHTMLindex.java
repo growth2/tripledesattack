@@ -24,15 +24,6 @@ public class CreateHTMLindex {
 	}
 	
 	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
-		
-		//Eksempel, hente ut ip-adresse fra endepunkt0 fra VCS0
-		//String endpointIPaddress = vcsC.get(0).getEndpoints().get(0).getIpAddress();
-		
-		//Eksempel, hente ut Lync-adresse
-		//String lyncAddress = vcsC.get(0).getZones().get(0).getPeerAdr();
-		
-		
 
 	/*********************************************************************************************/					
 		String body = "<p>The Farstad videoconferencing solution consist of:</p><ul><li>";
@@ -43,16 +34,6 @@ public class CreateHTMLindex {
 		
 
 	/*********************************************************************************************/						
-											
-							
-							body += "<div id=\"footer\">" +
-							"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-							"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
-							"</div>" +
-							"</div>" +
-						"</div>";
-	
-		String slutt = "</body></html>";
 		
 		FileWriter fstream = new FileWriter("index.html");
 		  BufferedWriter out = new BufferedWriter(fstream);

@@ -24,36 +24,7 @@ public class CreateHTMLtopology {
 	}
 	
 	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
-		
-		
-		String body = "	<div id=\"logo\" align=\"center\">" +
-				"<a href=\"http://www.atea.no\">" +
-				"<img src=\"images/atealogo.jpg\" />" +
-			"</a>" +
-			"<p>Telepresence Network Documentation</p>" +
-		"</div>" +
-		
-		"<div id=\"navbar-container\">" +
-		"	<div id=\"navbar\" align=\"center\">" +
-			"	<a href=\"index.html\">" +
-			"		Oversikt" +
-			"	</a>" +
-			"	<a href=\"topology.html\">" +
-			"		Topologi" +
-			"	</a>" +
-			"	<!-- Other links here...-->" +
-			"</div>" +
-		"</div>" +
-		
-		"<div id=\"wrapper\">" +
-			"<div id=\"content\"><p>" +
-
-
-	/*********************************************************************************************/
-			
-	/*********************************************************************************************/
-		"<h1>Infrastructure</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
+		String body = "<h1>Infrastructure</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
 			"<thead>" +
 				"<tr>" +
 					"<th scope=\"col\">Description</th>" +
@@ -107,7 +78,7 @@ public class CreateHTMLtopology {
 		
 		FileWriter fstream = new FileWriter("topology.html");
 		  BufferedWriter out = new BufferedWriter(fstream);
-		  out.write(start);
+		  out.write(CreateHTMLstatic.getStart());
 		  out.write(body);
 		  out.write(slutt);
 		  //Close the output stream
