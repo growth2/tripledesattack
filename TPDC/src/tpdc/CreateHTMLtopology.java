@@ -14,16 +14,16 @@ import java.util.ArrayList;
  *
  */
 public class CreateHTMLtopology {
-	private ArrayList<VCS> vcsC;
-	private ArrayList<VCS> vcsE;
+	//private ArrayList<VCS> vcsC;
+	//private ArrayList<VCS> vcsE;
 	
 	public CreateHTMLtopology(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-		this.vcsC = vcsC;
-		this.vcsE = vcsE;
-		buildHTML();
+		//this.vcsC = vcsC;
+		//this.vcsE = vcsE;
+		//buildHTML();
 	}
 	
-	public void buildHTML() throws IOException{
+	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
 		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
 		
 		

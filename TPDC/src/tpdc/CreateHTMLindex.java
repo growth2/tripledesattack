@@ -14,16 +14,16 @@ import java.util.ArrayList;
  *
  */
 public class CreateHTMLindex {
-	private ArrayList<VCS> vcsC;
-	private ArrayList<VCS> vcsE;
+	//private static ArrayList<VCS> vcsC;
+	//private static ArrayList<VCS> vcsE;
 	
 	public CreateHTMLindex(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-		this.vcsC = vcsC;
-		this.vcsE = vcsE;
-		buildHTML();
+		//this.vcsC = vcsC;
+		//this.vcsE = vcsE;
+		//buildHTML();
 	}
 	
-	public void buildHTML() throws IOException{
+	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
 		String start = "<html><head><LINK href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
 		
 		//Eksempel, hente ut ip-adresse fra endepunkt0 fra VCS0
