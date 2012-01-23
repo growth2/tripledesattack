@@ -52,31 +52,48 @@ public class CreateHTMLtopology {
 
 	/*********************************************************************************************/
 			
-"<p>Sip domain is: " + vcsC.get(0).getSipDomain() + "</p>" +
-"<p>Version is: " + vcsC.get(0).getSoftwareVersion() + "</p>" +
-		"<p align=\"center\"><table id=\"gradient-style\" summary=\"Meeting Results\">" +
+		"<h1>Infrastructure</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
 			"<thead>" +
 				"<tr>" +
-					"<th scope=\"col\">Employee</th>" +
-					"<th scope=\"col\">Division</th>" +
-					"<th scope=\"col\">Suggestions</th>" +
-					"<th scope=\"col\">Rating</th>" +
+					"<th scope=\"col\">Description</th>" +
+					"<th scope=\"col\">Hostname</th>" +
+					"<th scope=\"col\">IP-address</th>" +
+					"<th scope=\"col\">Sip Domain</th>" +
+					"<th scope=\"col\">Version</th>" +
 				"</tr>" +
 			"</thead>" +						
-			"<tbody>" +
-				"<tr><td>Stephen C. Cox</td><td>Marketing</td><td>Make discount offers</td><td>3/10</td></tr>" +
-				"<tr><td>Josephin Tan</td><td>Advertising</td><td>Give bonuses</td><td>5/10</td></tr>" +
-				"<tr><td>Joyce Ming</td><td>Marketing</td><td>New designs</td><td>8/10</td></tr>" +
-				"<tr><td>James A. Pentel</td><td>Marketing</td><td>Better Packaging</td><td>8/10</td></tr>" +
-			"</tbody>" +
+			"<tbody>"; 
+			if (vcsC.isEmpty()==false){
+				body += "<tr><td>VCS Control</td><td>" + vcsC.get(0).getHostname() + "</td><td>" + vcsC.get(0).getIPaddress() + "</td><td>" + vcsC.get(0).getSipDomain() + "</td><td>" + vcsC.get(0).getSoftwareVersion() + "</td></tr>";
+			}
+			if (vcsE.isEmpty()==false){
+				body += "<tr><td>VCS Expressway</td><td>" + vcsE.get(0).getHostname() + "</td><td>" + vcsE.get(0).getIPaddress() + "</td><td>" + vcsE.get(0).getSipDomain() + "</td><td>" + vcsE.get(0).getSoftwareVersion() + "</td></tr>";
+			}
+
+			body += "</tbody>" +
 		"</table></p>" +
+		
+		"<h1>Endpoints</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
+		"<thead>" +
+			"<tr>" +
+				"<th scope=\"col\">IP-address</th>" +
+				"<th scope=\"col\">E.164</th>" +
+				"<th scope=\"col\">H.323</th>" +
+				"<th scope=\"col\">Sip</th>" +
+			"</tr>" +
+		"</thead>" +						
+		"<tbody>" +
+		/***pseudocode***/
+			
+			"<tr><td>" + vcsC.get(0).getEndpoints().get(0).getIpAddress() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getE164Alias() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getH323IDs() + "</td><td>" + vcsC.get(0).getEndpoints().get(0).getSipURI() + "</td></tr>" +
+		/***pseudocode***/
+		"</tbody>" +
+		"</table></p>" +
+		
 			
 	/*********************************************************************************************/
 				
-					"</p><div id=\"footer\">" +
-						"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-						"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
-					"</div>" +
+					"</p>" +
 			"</div>" +
 		"</div>";
 				
