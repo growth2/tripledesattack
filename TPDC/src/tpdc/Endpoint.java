@@ -48,7 +48,11 @@ public class Endpoint {
 	public void setH323IDs(ArrayList<String> h323ids) {
 		h323IDs = h323ids;
 	}
-
+	
+	public ArrayList<String> getH323IDs(ArrayList<String> h323ids) {
+		return h323ids;
+	}
+	
 	public String getE164Alias() {
 		return e164Alias;
 	}
