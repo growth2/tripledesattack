@@ -34,6 +34,7 @@ public class TPDC {
 	private static void createHTML() throws IOException{
 		CreateHTMLindex.buildHTML(vcsC, vcsE);
 		CreateHTMLtopology.buildHTML(vcsC, vcsE);
+		CreateHTMLstatic.createHTMLstaticPages();
 		//CreateHTMLindex cIndex = new CreateHTMLindex(vcsC, vcsE);
 		//CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
 	}
