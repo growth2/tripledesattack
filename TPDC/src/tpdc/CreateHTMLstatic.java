@@ -81,12 +81,6 @@ public class CreateHTMLstatic {
 		
 
 	/*********************************************************************************************/							
-							body += "<div id=\"footer\">" +
-							"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-							"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
-							"</div>" +
-							"</div>" +
-						"</div>";
 	
 		FileWriter fstream = new FileWriter("VCSE.html");
 		  BufferedWriter out = new BufferedWriter(fstream);
@@ -109,13 +103,6 @@ public class CreateHTMLstatic {
 		
 
 	/*********************************************************************************************/							
-							body += "<div id=\"footer\">" +
-							"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-							"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
-							"</div>" +
-							"</div>" +
-						"</div>";
-		String slutt = "</body></html>";
 		
 		FileWriter fstream = new FileWriter("TMS.html");
 		  BufferedWriter out = new BufferedWriter(fstream);
