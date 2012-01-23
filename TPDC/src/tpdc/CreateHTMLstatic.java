@@ -99,7 +99,7 @@ public class CreateHTMLstatic {
 		"<p>TMS is one management platform for all your video communication needs. Cisco TelePresence Management Suite (TMS) is scalable, easy-to-use and " +
 		"integrates with existing applications to increase ROI. It provides complete visibility and centralized control for on-site and remote video systems. TMS " +
 		"supports management, deployment, and scheduling of the entire video network, including telepresence, from one single product.</p> " +
-		"<p><a href=\"http://www.cisco.com/en/US/products/ps11338/index.html\"> Go to VCS on Cisco.com </a></p>";
+		"<p><a href=\"http://www.cisco.com/en/US/products/ps11338/index.html\"> Go to TMS on Cisco.com </a></p>";
 		
 
 	/*********************************************************************************************/							
