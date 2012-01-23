@@ -64,7 +64,9 @@ public class CreateHTMLtopology {
 			"</thead>" +						
 			"<tbody>"; 
 			if (vcsC.isEmpty()==false){
-				body += "<tr><td>VCS Control</td><td>" + vcsC.get(0).getHostname() + "</td><td>" + vcsC.get(0).getIPaddress() + "</td><td>" + vcsC.get(0).getSipDomain() + "</td><td>" + vcsC.get(0).getSoftwareVersion() + "</td></tr>";
+				for(VCS eachVCS : vcsC){
+				body += "<tr><td>VCS Control</td><td>" + eachVCS.getHostname() + "</td><td>" + eachVCS.getIPaddress() + "</td><td>" + eachVCS.getSipDomain() + "</td><td>" + eachVCS.getSoftwareVersion() + "</td></tr>";
+				}
 			}
 			if (vcsE.isEmpty()==false){
 				body += "<tr><td>VCS Expressway</td><td>" + vcsE.get(0).getHostname() + "</td><td>" + vcsE.get(0).getIPaddress() + "</td><td>" + vcsE.get(0).getSipDomain() + "</td><td>" + vcsE.get(0).getSoftwareVersion() + "</td></tr>";
