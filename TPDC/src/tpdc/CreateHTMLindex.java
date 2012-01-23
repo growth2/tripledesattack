@@ -29,9 +29,9 @@ public class CreateHTMLindex {
 		String body = "<p>The Farstad videoconferencing solution consist of:</p><ul><li>";
 		
 		if(!vcsC.isEmpty()) body+= "<a href=\"VCSC.html\">VCS Control</a></li>";
-		if(!vcsE.isEmpty()) body+= "<a href=\"VCSE.html\">VCS Expressway</a></li>";
-		if(vcsC.get(0).getTMSaddress() != "") body += "<a href=\"TMS.html\">TMS</a></li>";
-		
+		if(!vcsE.isEmpty()) body+= "<li><a href=\"VCSE.html\">VCS Expressway</a></li>";
+		if(vcsC.get(0).getTMSaddress() != "") body += "<li><a href=\"TMS.html\">TMS</a></li>";
+		body += "</ul>";
 
 	/*********************************************************************************************/						
 		//String slutt = "</body></html>";
