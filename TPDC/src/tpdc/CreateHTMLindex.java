@@ -34,20 +34,16 @@ public class CreateHTMLindex {
 		
 
 	/*********************************************************************************************/						
-		
+		//String slutt = "</body></html>";
 		FileWriter fstream = new FileWriter("index.html");
-		  BufferedWriter out = new BufferedWriter(fstream);
-		  out.write(CreateHTMLstatic.getStart());
-		  out.write(body);
-		  out.write(CreateHTMLstatic.getEnd());
-		  //Close the output stream
-		  out.close();
+		BufferedWriter out = new BufferedWriter(fstream);
+		out.write(CreateHTMLstatic.getStart());
+		out.write(body);
+		out.write(CreateHTMLstatic.getEnd());
+		//out.write(CreateHTMLstatic.getEnd());
+		//Close the output stream
+		out.close();
 		  
 	}
-	
-
-	
-		
-		
 	
 }
