@@ -23,7 +23,13 @@ public class CreateHTMLtopology {
 		//buildHTML();
 	}
 	
-	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
+	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{	
+		
+		
+		/*********************************************************************************************/		
+		
+		/************************************START*Infrastructure**********************************************/
+		
 		String body = "<h1>Infrastructure</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
 			"<thead>" +
 				"<tr>" +
@@ -35,18 +41,22 @@ public class CreateHTMLtopology {
 				"</tr>" +
 			"</thead>" +						
 			"<tbody>"; 
-			if (vcsC.isEmpty()==false){
+			if (!vcsC.isEmpty()){
 				for(VCS eachVCS : vcsC){
 				body += "<tr><td>VCS Control</td><td>" + eachVCS.getHostname() + "</td><td>" + eachVCS.getIPaddress() + "</td><td>" + eachVCS.getSipDomain() + "</td><td>" + eachVCS.getSoftwareVersion() + "</td></tr>";
 				}
 			}
-			if (vcsE.isEmpty()==false){
-				body += "<tr><td>VCS Expressway</td><td>" + vcsE.get(0).getHostname() + "</td><td>" + vcsE.get(0).getIPaddress() + "</td><td>" + vcsE.get(0).getSipDomain() + "</td><td>" + vcsE.get(0).getSoftwareVersion() + "</td></tr>";
+			if (!vcsE.isEmpty()){
+				for(VCS eachVCS : vcsE){
+				body += "<tr><td>VCS Expressway</td><td>" + eachVCS.getHostname() + "</td><td>" + eachVCS.getIPaddress() + "</td><td>" + eachVCS.getSipDomain() + "</td><td>" + eachVCS.getSoftwareVersion() + "</td></tr>";
+				}
 			}
-
 			body += "</tbody>" +
 		"</table></p>" +
+					
+		/**********************************END*Infrastructure*******************************************/
 		
+		/***********************************START*Endpoints**********************************************/
 		"<h1>Endpoints</h1><p align=\"center\"><table id=\"gradient-style\" summary=\"Infrastructure\">" +
 		"<thead>" +
 			"<tr>" +
@@ -57,30 +67,23 @@ public class CreateHTMLtopology {
 			"</tr>" +
 		"</thead>" +						
 		"<tbody>";
-		/***pseudocode***/
+		
 		for(Endpoint eachEP : vcsC.get( 0).getEndpoints()){
 			body += "<tr><td>" + eachEP.getIpAddress() + "</td><td>" + eachEP.getE164Alias() + "</td><td>" + eachEP.getH323IDs() + "</td><td>" + eachEP.getSipURI() + "</td></tr>";
-		/***pseudocode***/
+		
 		}
 		body += "</tbody>" +
-		"</table></p>" +
+		"</table></p>";
+				
+	/***************************************END*Endpoints**********************************************/
 		
-			
 	/*********************************************************************************************/
-				
-					"</p>" +
-			"</div>" +
-		"</div>";
-				
-	
-	
-		String slutt = "</body></html>";
 		
 		FileWriter fstream = new FileWriter("topology.html");
 		  BufferedWriter out = new BufferedWriter(fstream);
 		  out.write(CreateHTMLstatic.getStart());
 		  out.write(body);
-		  out.write(slutt);
+		  out.write(CreateHTMLstatic.getEnd());
 		  //Close the output stream
 		  out.close();
 
