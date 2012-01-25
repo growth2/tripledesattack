@@ -31,8 +31,8 @@ public class TPDC {
 		}
 	}
 	
-	private static void createHTML() throws IOException{
-		CreateHTMLindex.buildHTML(vcsC, vcsE);
+	private static void createHTML(String customer, String consultant) throws IOException{
+		CreateHTMLindex.buildHTML(vcsC, vcsE, customer, consultant);
 		CreateHTMLtopology.buildHTML(vcsC, vcsE);
 		CreateHTMLstatic.createHTMLstaticPages();
 		//CreateHTMLindex cIndex = new CreateHTMLindex(vcsC, vcsE);
@@ -40,6 +40,8 @@ public class TPDC {
 	}
 	
 	private static void initialize() throws IOException{
+		String customer = "Farstad";
+		String consultant = "Smart Y. Pants";
 		if(debug){
 			vcsC.add(new VCS("xconf.txt", "xstat.txt", false));
 		}
@@ -53,7 +55,7 @@ public class TPDC {
 			for(int i = 0; i<numVCSC; i++){
 				System.out.print("Enter xconf filename for VCS Control #" + i+1 + " : ");
 				String xConf = in.nextLine();
-				System.out.print("Enter xconf filename for VCS Control #" + i+1 + " : ");
+				System.out.print("Enter xstat filename for VCS Control #" + i+1 + " : ");
 				String xStat = in.nextLine();
 				vcsC.add(new VCS(xConf, xStat, false));
 			}
@@ -65,7 +67,11 @@ public class TPDC {
 				String xStat = in.nextLine();
 				vcsE.add(new VCS(xConf, xStat, true));
 			}
+			System.out.print("Enter Customer name: ");
+			customer = in.nextLine();
+			System.out.print("Enter your name: ");
+			consultant = in.nextLine();
 		}
-		createHTML();
+		createHTML(customer, consultant);
 	}
 }

@@ -7,6 +7,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 /**
@@ -23,10 +24,11 @@ public class CreateHTMLindex {
 		//buildHTML();
 	}
 	
-	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE) throws IOException{
-
+	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE, String customer, String consultant) throws IOException{
+		Calendar cal = Calendar.getInstance();
 	/*********************************************************************************************/					
-		String body = "<p>The Farstad videoconferencing solution consist of:</p><ul><li>";
+		String body = "<p>These documents describe the " + customer + " Cisco Telepresence solution.<br><b>Author:</b> <em>" +
+				consultant + "</em><br><b>Date:</b> " + cal.getTime() + "</p><ul><li>";
 		
 		if(!vcsC.isEmpty()) body+= "<a href=\"VCSC.html\">VCS Control</a></li>";
 		if(!vcsE.isEmpty()) body+= "<li><a href=\"VCSE.html\">VCS Expressway</a></li>";

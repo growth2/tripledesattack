@@ -37,7 +37,7 @@ public class CreateHTMLstatic {
 	
 	private static String end = "<p></p><p></p><div id=\"footer\">" +
 			"	<img src=\"images/ciscologo.jpg\" height=\"50px\" />" +
-			"	<img src=\"images/companylogo.jpg\" height=\"50px\" />" +
+			"	<img src=\"images/companylogo.jpg\" height=\"50px\" />"+
 			"</div>" +
 			"</div>" +
 			"</div></body></html>";
@@ -45,7 +45,7 @@ public class CreateHTMLstatic {
 	public static void createHTMLstaticPages() throws IOException{
 		createVCSCpage();
 		createVCSEpage();
-		createTMSpage();
+		createTMSpage(); 
 	}
 	public static String getStart(){
 		return start;
