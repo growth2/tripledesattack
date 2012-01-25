@@ -23,10 +23,13 @@ public class CreateHTMLstatic {
 	"<div id=\"navbar-container\">" +
 	"	<div id=\"navbar\" align=\"center\">" +
 		"	<a href=\"index.html\">" +
-		"		Overview" +
+		"		Home" +
 		"	</a>" +
 		"	<a href=\"topology.html\">" +
 		"		Topology" +
+		"	</a>" +
+		"	<a href=\"connect.html\">" +
+		"		Connect" +
 		"	</a>" +
 		"	<!-- Other links here...-->" +
 		"</div>" +
