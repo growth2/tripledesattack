@@ -249,50 +249,117 @@ xconf
 *c xConfiguration Zones LocalZone DefaultSubZone Bandwidth PerCall Intra Mode: Unlimited
 *c xConfiguration Zones LocalZone TraversalSubZone Bandwidth Total Mode: Unlimited
 *c xConfiguration Zones LocalZone TraversalSubZone Bandwidth PerCall Mode: Unlimited
-*c xConfiguration Zones Zone 1 Name: "Sametime Neighbor"
+*c xConfiguration Zones Zone 1 Name: "To Videonor Expressway"
 *c xConfiguration Zones Zone 1 HopCount: 15
-*c xConfiguration Zones Zone 1 H323 Mode: Off
+*c xConfiguration Zones Zone 1 H323 Mode: On
 *c xConfiguration Zones Zone 1 SIP Mode: On
-*c xConfiguration Zones Zone 1 Type: Neighbor
-*c xConfiguration Zones Zone 1 Neighbor Authentication Mode: TreatAsAuthenticated
-*c xConfiguration Zones Zone 1 Neighbor Registrations: Allow
-*c xConfiguration Zones Zone 1 Neighbor Monitor: Yes
-*c xConfiguration Zones Zone 1 Neighbor SignalingRouting Mode: Always
-*c xConfiguration Zones Zone 1 Neighbor H323 Port: 1719
-*c xConfiguration Zones Zone 1 Neighbor H323 CallSignaling Port: 1720
-*c xConfiguration Zones Zone 1 Neighbor H323 SearchAutoResponse: Off
-*c xConfiguration Zones Zone 1 Neighbor AdvancedMediaGateway Mode: Off
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP EmptyInviteAllowed: On
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Encryption EncryptSRTCP: No
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Audio DefaultCodec: G711u
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultCodec: H263
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultBitrate: 384
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Video DefaultResolution: CIF
-*c xConfiguration Zones Zone 1 Neighbor Interworking SIP Search Strategy: Options
-*c xConfiguration Zones Zone 1 Neighbor SIP Port: 5080
-*c xConfiguration Zones Zone 1 Neighbor SIP MediaRouting Mode: Auto
-*c xConfiguration Zones Zone 1 Neighbor SIP Transport: UDP
-*c xConfiguration Zones Zone 1 Neighbor SIP TLS Verify Mode: Off
-*c xConfiguration Zones Zone 1 Neighbor SIP Authentication Trust Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP ClassFiveResponseLiveness: Yes
-*c xConfiguration Zones Zone 1 Neighbor SIP SearchAutoResponse: On
-*c xConfiguration Zones Zone 1 Neighbor SIP Encryption Mode: Auto
-*c xConfiguration Zones Zone 1 Neighbor SIP Poison Mode: Off
-*c xConfiguration Zones Zone 1 Neighbor SIP UDP BFCP Filter Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP Duo Video Filter Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP SDP Attribute Line Limit Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP SDP Attribute Line Limit Length: 130
-*c xConfiguration Zones Zone 1 Neighbor SIP MIME Strip Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP UPDATE Strip Mode: On
-*c xConfiguration Zones Zone 1 Neighbor SIP ProxyRequire Strip List: ""
-*c xConfiguration Zones Zone 1 Neighbor SIP Record Route Address Type: IP
-*c xConfiguration Zones Zone 1 Neighbor Peer 1 Address: "10.19.16.92"
-*c xConfiguration Zones Zone 1 Neighbor Peer 2 Address: ""
-*c xConfiguration Zones Zone 1 Neighbor Peer 3 Address: ""
-*c xConfiguration Zones Zone 1 Neighbor Peer 4 Address: ""
-*c xConfiguration Zones Zone 1 Neighbor Peer 5 Address: ""
-*c xConfiguration Zones Zone 1 Neighbor Peer 6 Address: ""
-*c xConfiguration Zones Zone 1 Neighbor ZoneProfile: Custom
+*c xConfiguration Zones Zone 1 Type: TraversalClient
+*c xConfiguration Zones Zone 1 TraversalClient Authentication Mode: TreatAsAuthenticated
+*c xConfiguration Zones Zone 1 TraversalClient Authentication UserName: "sffkvcsc13"
+*c xConfiguration Zones Zone 1 TraversalClient Authentication Password: "{cipher}0UP4BHZQBG8cB2AEnhYDlA=="
+*c xConfiguration Zones Zone 1 TraversalClient Registrations: Allow
+*c xConfiguration Zones Zone 1 TraversalClient H323 Protocol: Assent
+*c xConfiguration Zones Zone 1 TraversalClient H323 Port: 6005
+*c xConfiguration Zones Zone 1 TraversalClient SIP Protocol: Assent
+*c xConfiguration Zones Zone 1 TraversalClient SIP Port: 7005
+*c xConfiguration Zones Zone 1 TraversalClient SIP Transport: TLS
+*c xConfiguration Zones Zone 1 TraversalClient SIP TLS Verify Mode: Off
+*c xConfiguration Zones Zone 1 TraversalClient SIP Poison Mode: On
+*c xConfiguration Zones Zone 1 TraversalClient RetryInterval: 120
+*c xConfiguration Zones Zone 1 TraversalClient Peer 1 Address: "vcse.vcn.no"
+*c xConfiguration Zones Zone 1 TraversalClient Peer 2 Address: "93.124.128.190"
+*c xConfiguration Zones Zone 1 TraversalClient Peer 3 Address: ""
+*c xConfiguration Zones Zone 1 TraversalClient Peer 4 Address: ""
+*c xConfiguration Zones Zone 1 TraversalClient Peer 5 Address: ""
+*c xConfiguration Zones Zone 1 TraversalClient Peer 6 Address: ""
+*c xConfiguration Zones Zone 3 Name: "LYNC"
+*c xConfiguration Zones Zone 3 HopCount: 15
+*c xConfiguration Zones Zone 3 H323 Mode: Off
+*c xConfiguration Zones Zone 3 SIP Mode: On
+*c xConfiguration Zones Zone 3 Type: Neighbor
+*c xConfiguration Zones Zone 3 Neighbor Authentication Mode: DoNotCheckCredentials
+*c xConfiguration Zones Zone 3 Neighbor Registrations: Allow
+*c xConfiguration Zones Zone 3 Neighbor Monitor: Yes
+*c xConfiguration Zones Zone 3 Neighbor SignalingRouting Mode: Auto
+*c xConfiguration Zones Zone 3 Neighbor H323 Port: 1719
+*c xConfiguration Zones Zone 3 Neighbor H323 CallSignaling Port: 1720
+*c xConfiguration Zones Zone 3 Neighbor H323 SearchAutoResponse: Off
+*c xConfiguration Zones Zone 3 Neighbor AdvancedMediaGateway Mode: Off
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP EmptyInviteAllowed: Off
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Encryption EncryptSRTCP: No
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Audio DefaultCodec: G711u
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Video DefaultCodec: H263
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Video DefaultBitrate: 384
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Video DefaultResolution: CIF
+*c xConfiguration Zones Zone 3 Neighbor Interworking SIP Search Strategy: Info
+*c xConfiguration Zones Zone 3 Neighbor SIP Port: 5061
+*c xConfiguration Zones Zone 3 Neighbor SIP MediaRouting Mode: Auto
+*c xConfiguration Zones Zone 3 Neighbor SIP Transport: TLS
+*c xConfiguration Zones Zone 3 Neighbor SIP TLS Verify Mode: Off
+*c xConfiguration Zones Zone 3 Neighbor SIP Authentication Trust Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP ClassFiveResponseLiveness: Yes
+*c xConfiguration Zones Zone 3 Neighbor SIP SearchAutoResponse: On
+*c xConfiguration Zones Zone 3 Neighbor SIP Encryption Mode: Off
+*c xConfiguration Zones Zone 3 Neighbor SIP Poison Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP UDP BFCP Filter Mode: Off
+*c xConfiguration Zones Zone 3 Neighbor SIP Duo Video Filter Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP SDP Attribute Line Limit Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP SDP Attribute Line Limit Length: 130
+*c xConfiguration Zones Zone 3 Neighbor SIP MIME Strip Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP UPDATE Strip Mode: On
+*c xConfiguration Zones Zone 3 Neighbor SIP ProxyRequire Strip List: ""
+*c xConfiguration Zones Zone 3 Neighbor SIP Record Route Address Type: Hostname
+*c xConfiguration Zones Zone 3 Neighbor Peer 1 Address: "lyncpool.adm.sfj.intern"
+*c xConfiguration Zones Zone 3 Neighbor Peer 2 Address: ""
+*c xConfiguration Zones Zone 3 Neighbor Peer 3 Address: ""
+*c xConfiguration Zones Zone 3 Neighbor Peer 4 Address: ""
+*c xConfiguration Zones Zone 3 Neighbor Peer 5 Address: ""
+*c xConfiguration Zones Zone 3 Neighbor Peer 6 Address: ""
+*c xConfiguration Zones Zone 3 Neighbor ZoneProfile: Custom
+*c xConfiguration Zones Zone 4 Name: "Sametime Neighbor"
+*c xConfiguration Zones Zone 4 HopCount: 15
+*c xConfiguration Zones Zone 4 H323 Mode: Off
+*c xConfiguration Zones Zone 4 SIP Mode: On
+*c xConfiguration Zones Zone 4 Type: Neighbor
+*c xConfiguration Zones Zone 4 Neighbor Authentication Mode: TreatAsAuthenticated
+*c xConfiguration Zones Zone 4 Neighbor Registrations: Allow
+*c xConfiguration Zones Zone 4 Neighbor Monitor: Yes
+*c xConfiguration Zones Zone 4 Neighbor SignalingRouting Mode: Always
+*c xConfiguration Zones Zone 4 Neighbor H323 Port: 1719
+*c xConfiguration Zones Zone 4 Neighbor H323 CallSignaling Port: 1720
+*c xConfiguration Zones Zone 4 Neighbor H323 SearchAutoResponse: Off
+*c xConfiguration Zones Zone 4 Neighbor AdvancedMediaGateway Mode: Off
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP EmptyInviteAllowed: On
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Encryption EncryptSRTCP: No
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Audio DefaultCodec: G711u
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Video DefaultCodec: H263
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Video DefaultBitrate: 384
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Video DefaultResolution: CIF
+*c xConfiguration Zones Zone 4 Neighbor Interworking SIP Search Strategy: Options
+*c xConfiguration Zones Zone 4 Neighbor SIP Port: 5080
+*c xConfiguration Zones Zone 4 Neighbor SIP MediaRouting Mode: Auto
+*c xConfiguration Zones Zone 4 Neighbor SIP Transport: UDP
+*c xConfiguration Zones Zone 4 Neighbor SIP TLS Verify Mode: Off
+*c xConfiguration Zones Zone 4 Neighbor SIP Authentication Trust Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP ClassFiveResponseLiveness: Yes
+*c xConfiguration Zones Zone 4 Neighbor SIP SearchAutoResponse: On
+*c xConfiguration Zones Zone 4 Neighbor SIP Encryption Mode: Auto
+*c xConfiguration Zones Zone 4 Neighbor SIP Poison Mode: Off
+*c xConfiguration Zones Zone 4 Neighbor SIP UDP BFCP Filter Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP Duo Video Filter Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP SDP Attribute Line Limit Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP SDP Attribute Line Limit Length: 130
+*c xConfiguration Zones Zone 4 Neighbor SIP MIME Strip Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP UPDATE Strip Mode: On
+*c xConfiguration Zones Zone 4 Neighbor SIP ProxyRequire Strip List: ""
+*c xConfiguration Zones Zone 4 Neighbor SIP Record Route Address Type: IP
+*c xConfiguration Zones Zone 4 Neighbor Peer 1 Address: "10.19.16.92"
+*c xConfiguration Zones Zone 4 Neighbor Peer 2 Address: ""
+*c xConfiguration Zones Zone 4 Neighbor Peer 3 Address: ""
+*c xConfiguration Zones Zone 4 Neighbor Peer 4 Address: ""
+*c xConfiguration Zones Zone 4 Neighbor Peer 5 Address: ""
+*c xConfiguration Zones Zone 4 Neighbor Peer 6 Address: ""
+*c xConfiguration Zones Zone 4 Neighbor ZoneProfile: Custom
 *c xConfiguration Zones Zone 2 Name: "To Microsoft OCS/Lync server via B2BUA"
 *c xConfiguration Zones Zone 2 HopCount: 15
 *c xConfiguration Zones Zone 2 H323 Mode: Off
