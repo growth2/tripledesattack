@@ -24,11 +24,11 @@ public class CreateHTMLindex {
 		//buildHTML();
 	}
 	
-	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE, String customer, String consultant) throws IOException{
+	public static void buildHTML(ArrayList<VCS> vcsC, ArrayList<VCS> vcsE, String customer, String consultant, String email, String version) throws IOException{
 		Calendar cal = Calendar.getInstance();
 	/*********************************************************************************************/					
-		String body = "<p>These documents describe the " + customer + " Cisco Telepresence solution.<br><b>Author:</b> <em>" +
-				consultant + "</em><br><b>Date:</b> " + cal.getTime() + "</p>";
+		String body = "<p>These documents describe the " + customer + " Cisco Telepresence solution.<br><b>Atea Consultant:</b> <a href=\"mailto:" +
+				email + "\">" + consultant + "</a><br><b>Date:</b> " + cal.getTime() + "<br><b>Document version: </b>" + version + "</p>";
 		body += "<img src=\"images/telepresence_752x343.jpg\"></img><p></p>";
 		/*
 		body += "<ul><li>";
