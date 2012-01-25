@@ -34,6 +34,7 @@ public class TPDC {
 	private static void createHTML(String customer, String consultant) throws IOException{
 		CreateHTMLindex.buildHTML(vcsC, vcsE, customer, consultant);
 		CreateHTMLtopology.buildHTML(vcsC, vcsE);
+		CreateHTMLconnect.buildHTML(vcsC, vcsE);
 		CreateHTMLstatic.createHTMLstaticPages();
 		//CreateHTMLindex cIndex = new CreateHTMLindex(vcsC, vcsE);
 		//CreateHTMLtopology cTopology = new CreateHTMLtopology(vcsC, vcsE);
