@@ -51,6 +51,9 @@ public class CreateHTMLtopology {
 				body += "<tr><td>VCS Expressway</td><td>" + eachVCS.getHostname() + "</td><td>" + eachVCS.getIPaddress() + "</td><td>" + eachVCS.getSipDomain() + "</td><td>" + eachVCS.getSoftwareVersion() + "</td></tr>";
 				}
 			}
+			if(vcsC.get(0).getTMSaddress() != ""){
+				body += "<tr><td>TMS</td><td>N/A</td><td>" + vcsC.get(0).getTMSaddress() + "</td><td>N/A</td><td>N/A</td></tr>";
+			}
 			body += "</tbody>" +
 		"</table></p>" +
 					
